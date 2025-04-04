@@ -1,0 +1,181 @@
+@use "base" as base;
+
+@mixin font-styles(
+  $font-size: base.$font-size-p,
+  $font-family: "Montserrat",
+  $font-weight: 500,
+  $font-color: base.$neutral-black
+) {
+  font-size: $font-size;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  color: $font-color;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  gap: 0;
+
+  @media (min-width: base.$breakpoint-tablet) {
+    flex-direction: row;
+    max-width: 800px;
+    height: 600px;
+  }
+}
+
+picture {
+  display: flex;
+}
+
+.perfume-pic {
+  width: 100%;
+  block-size: auto;
+  display: flex;
+
+  border-radius: 20px 20px 0px 0px;
+
+  @media (min-width: base.$breakpoint-tablet) {
+    border-radius: 20px 0px 0px 20px;
+  }
+}
+
+.info {
+  background-color: base.$neutral-white;
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 1rem;
+  padding: 16px;
+  border-radius: 0px 0px 20px 20px;
+
+  @media (min-width: base.$breakpoint-tablet) {
+    border-radius: 0px 20px 20px 0px;
+    width: 50%;
+  }
+}
+
+.subtitle {
+  @include font-styles(
+    0.9rem,
+    base.$font-montserrat,
+    base.$font-weight-one,
+    base.$neutral-grey
+  );
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5rem;
+
+  @media (min-width: base.$breakpoint-tablet) {
+    font-size: 1.5rem;
+  }
+}
+
+.title {
+  @include font-styles(
+    2.2rem,
+    base.$font-fraunces,
+    base.$font-weight-two,
+    base.$neutral-black
+  );
+  margin: 0;
+
+  @media (min-width: base.$breakpoint-tablet) {
+    font-size: 3.5rem;
+  }
+}
+
+.description {
+  @include font-styles(
+    1rem,
+    base.$font-montserrat,
+    base.$font-weight-one,
+    base.$neutral-grey
+  );
+
+  margin: 0;
+
+  @media (min-width: base.$breakpoint-tablet) {
+    font-size: 1.5rem;
+  }
+}
+
+.price {
+  @include font-styles(
+    2.8rem,
+    base.$font-fraunces,
+    base.$font-weight-two,
+    base.$primary-green
+  );
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+span {
+  @include font-styles(
+    1rem,
+    base.$font-montserrat,
+    base.$font-weight-one,
+    base.$neutral-grey
+  );
+
+  text-decoration: line-through;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  background-color: base.$primary-green;
+  border: 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+
+  @include font-styles(
+    1rem,
+    base.$font-montserrat,
+    base.$font-weight-one,
+    base.$neutral-white
+  );
+
+  &:hover {
+    background-color: base.$secondary-green;
+  }
+
+  &:active {
+    background-color: base.$primary-green;
+  }
+}
+
+.cart {
+  width: 20px;
+  height: auto;
+}
+
+footer {
+  padding: 8px 0px;
+  margin: 0px 16px;
+  text-align: center;
+
+  @include font-styles(
+    0.8rem,
+    base.$font-montserrat,
+    base.$font-weight-one,
+    base.$neutral-black
+  );
+
+  a {
+    color: base.$primary-green;
+  }
+}

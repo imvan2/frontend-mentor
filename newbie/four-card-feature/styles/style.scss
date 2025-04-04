@@ -1,0 +1,162 @@
+@use "layout";
+@use "variables" as variables;
+@use "mixins" as mixin;
+
+main {
+  display: flex;
+  flex-direction: column;
+  font-family: variables.$font-stack;
+  gap: 60px;
+  width: 100%;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 25px;
+
+  .subtitle {
+    @include mixin.font-style(
+      $size: 6.6cqw,
+      $color: variables.$neutral-grey-400,
+      $line-height: 2rem
+    );
+
+    @media (min-width: variables.$mobile-screen) {
+      font-size: 2.6rem;
+    }
+
+    @media (min-width: variables.$tablet-screen) {
+      line-height: 1.2em;
+    }
+  }
+
+  h1 {
+    @include mixin.font-style(
+      $size: 6.6cqw,
+      $color: variables.$neutral-grey-500,
+      $weight: 600,
+      $line-height: 2rem
+    );
+
+    @media (min-width: variables.$mobile-screen) {
+      font-size: 2.6rem;
+    }
+
+    @media (min-width: variables.$tablet-screen) {
+      line-height: 1.2em;
+    }
+  }
+
+  p {
+    @include mixin.font-style(
+      $size: variables.$base-font-size,
+      $color: variables.$neutral-grey-500,
+      $weight: 400,
+      $line-height: 1.3rem
+    );
+    text-align: center;
+
+    @media (min-width: variables.$mobile-screen) {
+      line-height: 1.5em;
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  @media (min-width: variables.$mobile-screen) {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+}
+
+.individual-card {
+  padding: 50px 25px;
+  background-color: variables.$neutral-white;
+  box-shadow: 0px 17px 32px -23px variables.$neutral-grey-400;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  height: auto;
+  width: 100%;
+
+  .cyan {
+    @include mixin.line-style($color: variables.$primary-cyan);
+  }
+
+  .red {
+    @include mixin.line-style($color: variables.$primary-red);
+  }
+
+  .orange {
+    @include mixin.line-style($color: variables.$primary-orange);
+  }
+
+  .blue {
+    @include mixin.line-style($color: variables.$primary-blue);
+  }
+
+  h2 {
+    @include mixin.font-style(
+      $size: variables.$base-font-size,
+      $color: variables.$neutral-grey-500,
+      $weight: 600,
+      $line-height: 1.3rem
+    );
+
+    margin-bottom: 10px;
+  }
+
+  p {
+    @include mixin.font-style(
+      $color: variables.$neutral-grey-400,
+      $weight: 400,
+      $line-height: 1.3rem
+    );
+  }
+
+  img {
+    width: 30%;
+    height: auto;
+    margin-left: auto;
+  }
+
+  @media (min-width: variables.$mobile-screen) {
+    align-self: center;
+    height: auto;
+  }
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: variables.$mobile-screen) {
+    gap: 20px;
+  }
+}
+
+footer {
+  @include mixin.font-style(
+    $size: 0.9rem,
+    $color: variables.$neutral-grey-400,
+    $weight: 400,
+    $line-height: 1.3rem
+  );
+  text-align: center;
+
+  a {
+    color: variables.$primary-orange;
+  }
+}

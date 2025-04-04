@@ -1,0 +1,21 @@
+$primary-green: hsl(158, 36%, 37%);
+$secondary-green: hsl(158, 42%, 18%);
+$neutral-black: hsl(212, 21%, 14%);
+$neutral-grey: hsl(228, 12%, 48%);
+$neutral-cream: hsl(30, 38%, 92%);
+$neutral-white: hsl(0, 0%, 100%);
+$font-size-p: 14px;
+$font-montserrat: "Montserrat";
+$font-fraunces: "Fraunces";
+$font-weight-one: 500;
+$font-weight-two: 700;
+$breakpoint-mobile: 24em;
+$breakpoint-tablet: 50em;
+
+body {
+  background-color: $neutral-cream;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}

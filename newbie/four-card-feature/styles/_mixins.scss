@@ -1,0 +1,23 @@
+@use "variables" as variables;
+
+@mixin font-style(
+  $size: 1rem,
+  $color: black,
+  $weight: 200,
+  $line-height: 2.5em
+) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin line-style($color: white) {
+  position: absolute;
+  background-color: $color;
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  top: 0;
+}

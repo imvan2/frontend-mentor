@@ -1,0 +1,24 @@
+@use "variables" as variables;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // border: 1px solid black;
+  font-family: variables.$font-stack;
+  font-size: variables.$base-font-size;
+  font-weight: 300;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 50px 30px;
+  row-gap: 25px;
+  width: 100%;
+  min-height: 100vh;
+
+  @media (min-width: variables.$desktop-screen) {
+    padding: 0px 8cqw;
+  }
+}

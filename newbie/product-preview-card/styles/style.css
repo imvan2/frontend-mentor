@@ -1,0 +1,160 @@
+body {
+  background-color: hsl(30, 38%, 92%);
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  gap: 0;
+}
+@media (min-width: 50em) {
+  main {
+    flex-direction: row;
+    max-width: 800px;
+    height: 600px;
+  }
+}
+
+picture {
+  display: flex;
+}
+
+.perfume-pic {
+  width: 100%;
+  block-size: auto;
+  display: flex;
+  border-radius: 20px 20px 0px 0px;
+}
+@media (min-width: 50em) {
+  .perfume-pic {
+    border-radius: 20px 0px 0px 20px;
+  }
+}
+
+.info {
+  background-color: hsl(0, 0%, 100%);
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 16px;
+  border-radius: 0px 0px 20px 20px;
+}
+@media (min-width: 50em) {
+  .info {
+    border-radius: 0px 20px 20px 0px;
+    width: 50%;
+  }
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: hsl(228, 12%, 48%);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5rem;
+}
+@media (min-width: 50em) {
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.title {
+  font-size: 2.2rem;
+  font-family: "Fraunces";
+  font-weight: 700;
+  color: hsl(212, 21%, 14%);
+  margin: 0;
+}
+@media (min-width: 50em) {
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+.description {
+  font-size: 1rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: hsl(228, 12%, 48%);
+  margin: 0;
+}
+@media (min-width: 50em) {
+  .description {
+    font-size: 1.5rem;
+  }
+}
+
+.price {
+  font-size: 2.8rem;
+  font-family: "Fraunces";
+  font-weight: 700;
+  color: hsl(158, 36%, 37%);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+span {
+  font-size: 1rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: hsl(228, 12%, 48%);
+  text-decoration: line-through;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  background-color: hsl(158, 36%, 37%);
+  border: 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: hsl(0, 0%, 100%);
+}
+button:hover {
+  background-color: hsl(158, 42%, 18%);
+}
+button:active {
+  background-color: hsl(158, 36%, 37%);
+}
+
+.cart {
+  width: 20px;
+  height: auto;
+}
+
+footer {
+  padding: 8px 0px;
+  margin: 0px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: hsl(212, 21%, 14%);
+}
+footer a {
+  color: hsl(158, 36%, 37%);
+}
+
+/*# sourceMappingURL=style.css.map */

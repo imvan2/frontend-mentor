@@ -1,0 +1,193 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: hsl(0, 0%, 99%);
+}
+@media (min-width: 34rem) {
+  body {
+    padding: 50px 6.6cqw;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins";
+  gap: 60px;
+  width: 100%;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 25px;
+}
+.header .subtitle {
+  font-size: 6.6cqw;
+  color: hsl(212, 6%, 44%);
+  font-weight: 200;
+  line-height: 2rem;
+}
+@media (min-width: 34rem) {
+  .header .subtitle {
+    font-size: 2.6rem;
+  }
+}
+@media (min-width: 37.5rem) {
+  .header .subtitle {
+    line-height: 1.2em;
+  }
+}
+.header h1 {
+  font-size: 6.6cqw;
+  color: hsl(234, 12%, 34%);
+  font-weight: 600;
+  line-height: 2rem;
+}
+@media (min-width: 34rem) {
+  .header h1 {
+    font-size: 2.6rem;
+  }
+}
+@media (min-width: 37.5rem) {
+  .header h1 {
+    line-height: 1.2em;
+  }
+}
+.header p {
+  font-size: 1.1rem;
+  color: hsl(234, 12%, 34%);
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+}
+@media (min-width: 34rem) {
+  .header p {
+    line-height: 1.5em;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+@media (min-width: 34rem) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+}
+
+.individual-card {
+  padding: 50px 25px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 17px 32px -23px hsl(212, 6%, 44%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+.individual-card .cyan {
+  position: absolute;
+  background-color: hsl(180, 62%, 55%);
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  top: 0;
+}
+.individual-card .red {
+  position: absolute;
+  background-color: hsl(0, 78%, 62%);
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  top: 0;
+}
+.individual-card .orange {
+  position: absolute;
+  background-color: hsl(34, 97%, 64%);
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  top: 0;
+}
+.individual-card .blue {
+  position: absolute;
+  background-color: hsl(212, 86%, 64%);
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  top: 0;
+}
+.individual-card h2 {
+  font-size: 1.1rem;
+  color: hsl(234, 12%, 34%);
+  font-weight: 600;
+  line-height: 1.3rem;
+  margin-bottom: 10px;
+}
+.individual-card p {
+  font-size: 1rem;
+  color: hsl(212, 6%, 44%);
+  font-weight: 400;
+  line-height: 1.3rem;
+}
+.individual-card img {
+  width: 30%;
+  height: auto;
+  margin-left: auto;
+}
+@media (min-width: 34rem) {
+  .individual-card {
+    align-self: center;
+    height: auto;
+  }
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media (min-width: 34rem) {
+  .middle-section {
+    gap: 20px;
+  }
+}
+
+footer {
+  font-size: 0.9rem;
+  color: hsl(212, 6%, 44%);
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+}
+footer a {
+  color: hsl(34, 97%, 64%);
+}
+
+/*# sourceMappingURL=style.css.map */

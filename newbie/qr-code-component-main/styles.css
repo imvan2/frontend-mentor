@@ -1,0 +1,91 @@
+/* makes everything easier to measure */
+* {
+    box-sizing: border-box;
+}
+
+/* margin & padding pushes everything out to the side*/
+/* by default, body has margins*/
+body {
+    margin: 0;
+    padding: 0;
+    /* border: 5px solid black; */
+    background-color: hsl(218, 44%, 22%);
+    width: 1440px;
+    height: auto;
+}
+
+.container {
+    background-color: hsl(0, 0%, 100%);
+    padding: 10px;
+    border-radius: 22px;
+    position: absolute;
+    width: 400px;
+    height: 580px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.inside-container {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+img {
+    width: 360px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.text {
+    font-family: "Outfit";
+    position:relative;
+    text-align: center;
+    /* border: 5px solid black; */
+    padding: 0 25px 0 25px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: hsl(218, 44%, 22%);
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+    color: hsl(220, 15%, 55%);
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    body {
+        width: 768px;
+        height: auto;
+    }
+
+    .container {
+        width: 330px;
+        height: 580px;
+    }
+
+    img {
+        width: 300px;
+        height: auto;
+    }
+  }
+
+/* Use this website to help with centering
+
+https://www.w3.org/Style/Examples/007/center#block
+
+*/

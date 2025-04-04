@@ -1,0 +1,152 @@
+@use "variables" as variables;
+@use "layout";
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "first"
+    "second"
+    "third"
+    "fourth"
+    "fifth";
+  row-gap: 40px;
+  width: 100%;
+  height: auto;
+  place-self: center;
+
+  .purple {
+    background-color: variables.$purple-500;
+    color: variables.$white;
+    grid-area: first;
+  }
+
+  .grey {
+    background-color: variables.$grey-500;
+    color: variables.$white;
+    grid-area: second;
+
+    span {
+      color: variables.$grey-200;
+    }
+  }
+
+  .white {
+    background-color: variables.$white;
+    color: variables.$dark-blue;
+    grid-area: third;
+
+    span {
+      color: variables.$grey-400;
+    }
+  }
+
+  .dark-blue {
+    background-color: variables.$dark-blue;
+    color: variables.$white;
+    grid-area: fourth;
+  }
+
+  .fifth {
+    grid-area: fifth;
+  }
+
+  @media (min-width: variables.$tablet-screen) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 25px;
+    grid-template-areas:
+      "first first second"
+      "third fourth fourth"
+      "fifth fifth fifth";
+  }
+
+  @media (min-width: variables.$desktop-screen) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "first first second fifth"
+      "third fourth fourth fifth";
+  }
+}
+
+.review {
+  border-radius: 10px;
+  box-shadow: 28px 26px 49px -35px variables.$black;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+
+  .reviewer-info {
+    display: grid;
+    grid-template-columns: min-content auto;
+    column-gap: 15px;
+
+    .name {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      font-size: 1.2rem;
+      font-weight: 400;
+
+      span {
+        font-size: 1rem;
+      }
+    }
+
+    .picture {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+  }
+
+  .comment {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: variables.$weight-500;
+      line-height: 2rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.quotation-mark {
+  display: none;
+  width: 120px;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 50px;
+  opacity: 50%;
+
+  @media (min-width: variables.$tablet-screen) {
+    display: block;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: variables.$purple-500;
+  font-size: 1rem;
+
+  a {
+    color: variables.$purple-300;
+  }
+}

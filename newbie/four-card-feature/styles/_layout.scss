@@ -1,0 +1,23 @@
+@use "variables" as variables;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: hsl(0, 0%, 99%);
+
+  @media (min-width: variables.$mobile-screen) {
+    padding: 50px 6.6cqw;
+  }
+}
