@@ -1,0 +1,525 @@
+@use "variables" as variables;
+@use "layout";
+
+%text-preset-1 {
+  font-size: 4rem; // 64px
+  font-weight: 900;
+  line-height: 110%;
+  letter-spacing: 0px;
+}
+
+%text-preset-2 {
+  font-size: 2.5rem; // 40px
+  font-weight: 900;
+  line-height: 110%;
+  letter-spacing: 0px;
+}
+
+%text-preset-3 {
+  font-size: 1rem; //16px
+  font-weight: 900;
+  line-height: 110%;
+  letter-spacing: 4px;
+}
+
+%text-preset-4 {
+  font-size: 1.125rem; // 18px
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: 0px;
+}
+
+%text-preset-5 {
+  font-size: 1rem; // 16px
+  font-weight: 900;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+%button-style {
+  border: 0px;
+  border-radius: 29px;
+  padding: 20px 40px;
+  color: variables.$white;
+
+  @extend %text-preset-5;
+}
+
+%cyan-button {
+  @extend %button-style;
+
+  background-color: variables.$cyan-600;
+
+  &:hover {
+    background-color: #71c0d4;
+  }
+
+  &:active {
+    background-color: variables.$cyan-600;
+  }
+
+  span {
+    color: variables.$cyan-300;
+  }
+}
+
+%purple-button {
+  @extend %button-style;
+
+  background-color: variables.$purple-600;
+
+  &:hover {
+    background-color: #b18bdd;
+  }
+
+  &:active {
+    background-color: variables.$purple-600;
+  }
+
+  span {
+    color: variables.$purple-300;
+  }
+}
+
+%numbered-circles {
+  position: relative;
+  width: 100%;
+  height: 136px;
+
+  hr {
+    height: 1px;
+    width: 80px;
+    color: variables.$slate-300;
+    background-color: variables.$slate-300;
+    border: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .circle {
+    border: 1px solid variables.$slate-300;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border-color: variables.$slate-300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+
+    p {
+      @extend %text-preset-5;
+      color: variables.$slate-600;
+    }
+  }
+}
+
+.logo {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
+
+  img {
+    width: 118px;
+    height: 28px;
+  }
+
+  @media (min-width: variables.$desktop-screen) {
+    margin-top: 80px;
+  }
+}
+
+.header-details {
+  width: 100%;
+  padding-top: 64px;
+  padding-bottom: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 48px;
+  align-items: end;
+  justify-items: center;
+  overflow: hidden;
+
+  .hero-imgs {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 160px;
+    position: relative;
+
+    img {
+      width: 208px;
+      height: 160px;
+
+      @media (min-width: variables.$tablet-768-screen) {
+        width: 394px;
+        height: 303px;
+      }
+    }
+
+    .hero-left {
+      position: absolute;
+      top: 0;
+      left: -29px;
+
+      @media (min-width: variables.$tablet-540-screen) {
+        left: 10%;
+      }
+
+      @media (min-width: variables.$tablet-768-screen) {
+        left: -26px;
+      }
+
+      @media (min-width: variables.$desktop-1024-screen) {
+        left: -50px;
+      }
+
+      @media (min-width: variables.$desktop-screen) {
+        left: -22px;
+      }
+    }
+
+    .hero-right {
+      position: absolute;
+      top: 0;
+      right: -30px;
+
+      @media (min-width: variables.$tablet-540-screen) {
+        right: 10%;
+      }
+
+      @media (min-width: variables.$tablet-768-screen) {
+        right: -26px;
+      }
+
+      @media (min-width: variables.$desktop-1024-screen) {
+        right: -50px;
+      }
+
+      @media (min-width: variables.$desktop-screen) {
+        right: -22px;
+      }
+    }
+
+    @media (min-width: variables.$tablet-768-screen) {
+      height: 303px;
+    }
+  }
+
+  .title {
+    grid-column: 1;
+    grid-row: 2;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    margin: 0px 32px;
+    max-width: 448px;
+
+    h1 {
+      @extend %text-preset-1;
+      font-size: 2.688rem; // 43px
+      color: variables.$slate-900;
+
+      @media (min-width: variables.$tablet-768-screen) {
+        font-size: 3rem; // 48px
+      }
+
+      @media (min-width: variables.$desktop-screen) {
+        font-size: 4rem; // 64px
+      }
+    }
+
+    p {
+      @extend %text-preset-4;
+      font-size: 1rem;
+      line-height: 150%;
+      color: variables.$slate-600;
+
+      @media (min-width: variables.$desktop-screen) {
+        font-size: 18px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      @media (min-width: variables.$tablet-768-screen) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  @media (min-width: variables.$tablet-768-screen) {
+    padding-bottom: 64px;
+  }
+
+  // Changes the header from 2 rows to 1 row
+  // Before: hero-left hero-right
+  //         title     title
+  // After: hero-left title hero-left
+  @media (min-width: variables.$desktop-1024-screen) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 488px;
+    align-items: start;
+
+    .hero-imgs {
+      display: grid;
+      grid-column: 1 / span 3;
+      grid-template-columns: subgrid;
+    }
+
+    .hero-left {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .hero-right {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .title {
+      grid-column: 2;
+      grid-row: 1;
+      height: 314px;
+      gap: 32px;
+      margin: auto 0px;
+    }
+  }
+}
+
+.cyan-button {
+  @extend %cyan-button;
+}
+
+.purple-button {
+  @extend %purple-button;
+}
+
+.first-section {
+  width: 100%;
+  height: auto;
+  padding: 32px 32px 64px 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 64px;
+  place-items: center;
+
+  .numbered-circles {
+    @extend %numbered-circles;
+  }
+
+  .grouped-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    place-items: center;
+
+    img {
+      border-radius: 9px;
+      object-fit: fill;
+      width: 147.5px;
+      height: 144px;
+
+      @media (min-width: variables.$desktop-screen) {
+        width: 256px;
+        height: 256px;
+      }
+    }
+
+    @media (min-width: variables.$tablet-768-screen) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media (min-width: variables.$desktop-screen) {
+      column-gap: 2rem;
+      row-gap: 0;
+    }
+  }
+
+  .first-section-details {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+    max-width: 544px;
+
+    .first-section-title {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      max-width: 445px;
+      margin: 0 auto;
+
+      p {
+        @extend %text-preset-3;
+        font-size: 0.75rem; // 12px
+        color: variables.$cyan-600;
+        text-transform: uppercase;
+
+        @media (min-width: variables.$tablet-768-screen) {
+          font-size: 0.875rem; // 14px
+        }
+
+        @media (min-width: variables.$desktop-screen) {
+          font-size: 1rem; // 16px
+        }
+      }
+
+      h2 {
+        @extend %text-preset-2;
+        font-size: 32px;
+        color: variables.$slate-900;
+
+        @media (min-width: variables.$tablet-768-screen) {
+          font-size: 2.25rem; // 36px
+        }
+
+        @media (min-width: variables.$desktop-screen) {
+          font-size: 2.5rem; // 40px
+        }
+      }
+    }
+    .summary {
+      @extend %text-preset-4;
+      font-size: 16px;
+      line-height: 150%;
+      color: variables.$slate-600;
+
+      @media (min-width: variables.$desktop-screen) {
+        font-size: 1.125rem; // 18px
+      }
+    }
+
+    @media (min-width: variables.$tablet-540-screen) {
+      max-width: 504px;
+    }
+  }
+
+  @media (min-width: variables.$tablet-540-screen) {
+    padding-top: 56px;
+  }
+
+  @media (min-width: variables.$desktop-screen) {
+    padding: 56px 80px 72px 80px;
+  }
+}
+
+.second-section {
+  width: 100%;
+  height: auto;
+
+  .numbered-circles {
+    @extend %numbered-circles;
+    height: 108px;
+
+    hr {
+      top: 37%;
+    }
+
+    .circle {
+      top: 100%;
+    }
+  }
+
+  .img-background {
+    background-image: url("/assets/tablet/image-footer.jpg");
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-width: variables.$desktop-1024-screen) {
+      background-image: url("/assets/desktop/image-footer.jpg");
+    }
+  }
+
+  .cyan-background {
+    width: 100%;
+    height: auto;
+    padding: 64px 32px;
+    background-color: rgba(77, 150, 169, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: variables.$desktop-screen) {
+      padding: 112px 80px;
+    }
+  }
+
+  .second-section-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+      @extend %text-preset-2;
+      font-size: 32px;
+      color: variables.$white;
+
+      @media (min-width: variables.$desktop-1024-screen) {
+        text-align: left;
+        max-width: 445px;
+        font-size: 40px; // 40px
+        text-align: left;
+      }
+    }
+    p {
+      @extend %text-preset-4;
+      line-height: 150%;
+      color: variables.$white;
+
+      @media (min-width: variables.$desktop-1024-screen) {
+        max-width: 355px;
+        text-align: left;
+      }
+    }
+
+    @media (min-width: variables.$tablet-540-screen) {
+      max-width: 504px;
+    }
+
+    @media (min-width: variables.$desktop-1024-screen) {
+      flex-direction: row;
+      gap: 32px;
+      max-width: 1120px;
+      align-items: flex-start;
+
+      .purple-button {
+        justify-content: flex-end;
+        margin-left: auto;
+      }
+    }
+  }
+
+  @media (min-width: variables.$desktop-1024-screen) {
+    height: 312px;
+  }
+}
