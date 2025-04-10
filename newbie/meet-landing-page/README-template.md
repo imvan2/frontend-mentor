@@ -24,9 +24,9 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop](./screenshot.jpg)
-![Tablet](./screenshot.jpg)
-![Mobile](./screenshot.jpg)
+![Desktop](./assets/meet-landing-page-desktop.png)
+![Tablet](./assets/meet-landing-page-tablet.png)
+![Mobile](./assets/meet-landing-page-mobile.png)
 
 ### Links
 
