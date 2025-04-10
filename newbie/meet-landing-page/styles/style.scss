@@ -445,14 +445,14 @@
   }
 
   .img-background {
-    background-image: url(../assets/tablet/image-footer.jpg);
+    background-image: url("../../../../frontend-mentor/newbie/meet-landing-page/assets/tablet/image-footer.jpg");
     width: 100%;
     height: auto;
     background-position: center;
     background-size: cover;
 
     @media (min-width: variables.$desktop-1024-screen) {
-      background-image: url(../assets/desktop/image-footer.jpg);
+      background-image: url("../../../../frontend-mentor/newbie/meet-landing-page/assets/desktop/image-footer.jpg");
     }
   }
 

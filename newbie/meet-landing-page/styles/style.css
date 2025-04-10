@@ -423,7 +423,7 @@ body {
   top: 100%;
 }
 .second-section .img-background {
-  background-image: url(../assets/tablet/image-footer.jpg);
+  background-image: url("../../../../frontend-mentor/newbie/meet-landing-page/assets/tablet/image-footer.jpg");
   width: 100%;
   height: auto;
   background-position: center;
@@ -431,7 +431,7 @@ body {
 }
 @media (min-width: 64rem) {
   .second-section .img-background {
-    background-image: url(../assets/desktop/image-footer.jpg);
+    background-image: url("../../../../frontend-mentor/newbie/meet-landing-page/assets/desktop/image-footer.jpg");
   }
 }
 .second-section .cyan-background {
