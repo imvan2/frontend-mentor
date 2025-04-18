@@ -1,0 +1,172 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "layout";
+
+.hero-container {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-image: url("/images/drawers-mobile.png");
+  background-position: left bottom;
+
+  @media screen and (min-width: v.$tablet-768-screen) {
+    background-image: url("/images/drawers-tablet.png");
+    min-width: 229px;
+    height: 346px;
+  }
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    background-image: url("/images/drawers-desktop.png");
+    min-width: 285px;
+    height: 280px;
+  }
+}
+
+.article-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+
+  h1 {
+    @include m.text-preset-1;
+    color: v.$grey-900;
+    margin-bottom: 24px;
+  }
+
+  .summary {
+    @include m.text-preset-3;
+    color: v.$grey-500;
+  }
+
+  .writer-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem -2rem -2rem -2rem;
+    padding: 2rem 2rem;
+    border-radius: 0 0 10px 10px;
+
+    .author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .writer-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-left: 20px;
+
+      .writer-name {
+        @include m.text-preset-2;
+        color: v.$grey-900;
+      }
+
+      .date {
+        @include m.text-preset-3;
+        color: v.$grey-400;
+      }
+    }
+
+    .share-button {
+      height: 32px;
+      width: 32px;
+      border: 0px;
+      border-radius: 50%;
+      background-color: v.$grey-200;
+      margin-left: auto;
+      z-index: 4;
+      cursor: pointer;
+
+      svg {
+        width: 15px;
+        height: 13px;
+        z-index: 5;
+      }
+    }
+  }
+}
+
+// Active styles
+.share-text {
+  @include m.text-preset-4;
+  color: v.$grey-400;
+  text-transform: uppercase;
+}
+
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.active-mobile {
+  z-index: 3;
+  background-color: v.$grey-900;
+  color: white;
+
+  // Hide the author and date
+  .author-img,
+  .writer-name,
+  .date {
+    display: none;
+  }
+
+  .share-info {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+  }
+
+  #share-button {
+    background-color: v.$grey-500;
+
+    svg {
+      color: white;
+    }
+  }
+}
+
+.active-tablet {
+  position: relative;
+
+  .share-info {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 7px;
+    border-radius: 20px;
+
+    position: absolute;
+    bottom: 100px;
+    right: -70px;
+    width: 248px;
+    height: 67px;
+    background-image: url("/images/share-toast.png");
+
+    .share-button {
+      display: none;
+    }
+
+    @media screen and (min-width: v.$desktop-1024-screen) {
+      bottom: 65px;
+      right: -70px;
+    }
+  }
+}
