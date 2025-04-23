@@ -1,0 +1,157 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "layout";
+
+button {
+  @include m.button;
+}
+
+.signup-form {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-bottom: 12px;
+
+  picture {
+    width: 100%;
+    height: auto;
+
+    .hero-img {
+      width: 100%;
+      height: 284px;
+
+      @media screen and (min-width: v.$tablet-540-screen) {
+        border-radius: 15px;
+        height: auto;
+      }
+    }
+  }
+
+  .info-card {
+    width: 100%;
+    height: auto;
+    padding: 32px 24px;
+    display: grid;
+    gap: 32px;
+
+    .summary {
+      display: grid;
+      gap: 24px;
+
+      h1 {
+        @include m.text-preset-1;
+      }
+
+      .subtitle,
+      li > p {
+        @include m.text-preset-2-regular;
+      }
+
+      ul {
+        display: grid;
+        gap: 8px;
+      }
+
+      .checklist {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: start;
+        width: 100%;
+
+        p {
+          display: inline-flex;
+          &::before {
+            content: "";
+            display: block;
+            background-image: url("../assets/images/icon-list.svg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: 21px;
+            height: 21px;
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: v.$tablet-540-screen) {
+      padding: 0px 0px;
+      padding-top: 32px;
+    }
+  }
+
+  @media screen and (min-width: v.$tablet-540-screen) {
+    padding-bottom: 0px;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 24px;
+
+  div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr;
+
+    label {
+      @include m.input-label();
+      margin-bottom: 8px;
+    }
+
+    .input {
+      @include m.text-input;
+      grid-column: span 2;
+    }
+
+    .input-error {
+      @include m.text-input-error;
+      grid-column: span 2;
+    }
+
+    .email-error {
+      @include m.input-label(v.$red);
+      text-align: right;
+    }
+  }
+}
+
+.success-message {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 623px;
+  padding: 0 24px;
+
+  div {
+    display: grid;
+    gap: 32px;
+
+    .icon-img {
+      width: 64px;
+      height: 64px;
+    }
+
+    h2 {
+      @include m.text-preset-1;
+    }
+
+    p {
+      @include m.text-preset-2-regular;
+    }
+  }
+
+  .dismiss-button {
+    margin-top: auto;
+
+    @media screen and (min-width: v.$tablet-540-screen) {
+      margin-top: 32px;
+    }
+  }
+
+  @media screen and (min-width: v.$tablet-540-screen) {
+    padding: 0;
+    height: auto;
+  }
+}

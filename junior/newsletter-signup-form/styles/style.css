@@ -1,0 +1,263 @@
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Regular", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 33.75rem) {
+  body {
+    background-color: #242742;
+    padding: 24px;
+  }
+}
+@media screen and (min-width: 48rem) {
+  body {
+    padding: 60px;
+  }
+}
+
+@media screen and (min-width: 33.75rem) {
+  main {
+    border-radius: 36px;
+    background-color: #ffffff;
+    padding: 40px;
+  }
+}
+@media screen and (min-width: 48rem) {
+  main {
+    padding: 64px;
+  }
+}
+
+button {
+  background-color: #242742;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  height: 56px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  font-family: "Roboto Bold", sans-serif;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-size: 1rem;
+  line-height: 150%;
+}
+button:active {
+  background: linear-gradient(90deg, #ff6a3a, #ff527b);
+  box-shadow: 0px 16px 32px 0px rgba(255, 97, 85, 0.5);
+}
+
+.signup-form {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-bottom: 12px;
+}
+.signup-form picture {
+  width: 100%;
+  height: auto;
+}
+.signup-form picture .hero-img {
+  width: 100%;
+  height: 284px;
+}
+@media screen and (min-width: 33.75rem) {
+  .signup-form picture .hero-img {
+    border-radius: 15px;
+    height: auto;
+  }
+}
+.signup-form .info-card {
+  width: 100%;
+  height: auto;
+  padding: 32px 24px;
+  display: grid;
+  gap: 32px;
+}
+.signup-form .info-card .summary {
+  display: grid;
+  gap: 24px;
+}
+.signup-form .info-card .summary h1 {
+  font-family: "Roboto Bold", sans-serif;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-size: clamp(2.5rem, 5.5vw + 1rem, 3.5rem);
+  /* min: 40px, fluid scaling, max: 56px*/
+}
+.signup-form .info-card .summary .subtitle,
+.signup-form .info-card .summary li > p {
+  letter-spacing: 0px;
+  font-size: 1rem;
+  font-family: "Roboto Regular", sans-serif;
+  line-height: 150%;
+}
+.signup-form .info-card .summary ul {
+  display: grid;
+  gap: 8px;
+}
+.signup-form .info-card .summary .checklist {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: start;
+  width: 100%;
+}
+.signup-form .info-card .summary .checklist p {
+  display: inline-flex;
+}
+.signup-form .info-card .summary .checklist p::before {
+  content: "";
+  display: block;
+  background-image: url("../assets/images/icon-list.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 21px;
+  height: 21px;
+  margin-right: 1rem;
+}
+@media screen and (min-width: 33.75rem) {
+  .signup-form .info-card {
+    padding: 0px 0px;
+    padding-top: 32px;
+  }
+}
+@media screen and (min-width: 33.75rem) {
+  .signup-form {
+    padding-bottom: 0px;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 24px;
+}
+.form div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2fr;
+}
+.form div label {
+  font-family: "Roboto Bold", sans-serif;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-size: 0.75rem;
+  line-height: 150%;
+  color: #242742;
+  width: 100%;
+  height: auto;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.form div .input {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  outline: 1px solid #949494;
+  letter-spacing: 0px;
+  font-size: 1rem;
+  font-family: "Roboto Regular", sans-serif;
+  line-height: 150%;
+  grid-column: span 2;
+}
+.form div .input::placeholder {
+  color: #949494;
+}
+.form div .input:focus, .form div .input:visited {
+  outline-color: #242742;
+}
+.form div .input:hover {
+  outline-color: #242742;
+  color: #242742;
+}
+.form div .input-error {
+  border: none;
+  background-color: #ffe7e6;
+  padding: 16px 24px;
+  color: #ff6155;
+  border-radius: 8px;
+  outline: 1px solid #ff6155;
+  letter-spacing: 0px;
+  font-size: 1rem;
+  font-family: "Roboto Regular", sans-serif;
+  line-height: 150%;
+  grid-column: span 2;
+}
+.form div .email-error {
+  font-family: "Roboto Bold", sans-serif;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-size: 0.75rem;
+  line-height: 150%;
+  color: #ff6155;
+  width: 100%;
+  height: auto;
+  font-weight: 700;
+  text-align: right;
+}
+
+.success-message {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 623px;
+  padding: 0 24px;
+}
+.success-message div {
+  display: grid;
+  gap: 32px;
+}
+.success-message div .icon-img {
+  width: 64px;
+  height: 64px;
+}
+.success-message div h2 {
+  font-family: "Roboto Bold", sans-serif;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-size: clamp(2.5rem, 5.5vw + 1rem, 3.5rem);
+  /* min: 40px, fluid scaling, max: 56px*/
+}
+.success-message div p {
+  letter-spacing: 0px;
+  font-size: 1rem;
+  font-family: "Roboto Regular", sans-serif;
+  line-height: 150%;
+}
+.success-message .dismiss-button {
+  margin-top: auto;
+}
+@media screen and (min-width: 33.75rem) {
+  .success-message .dismiss-button {
+    margin-top: 32px;
+  }
+}
+@media screen and (min-width: 33.75rem) {
+  .success-message {
+    padding: 0;
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
