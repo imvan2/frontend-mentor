@@ -7,10 +7,14 @@ button {
 }
 
 .signup-form {
-  display: block;
+  display: flex;
   width: 100%;
+  max-width: 904px;
   height: auto;
   padding-bottom: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   picture {
     width: 100%;
@@ -61,6 +65,8 @@ button {
 
         p {
           display: inline-flex;
+
+          // Inserting checkmark svgs
           &::before {
             content: "";
             display: block;
@@ -79,10 +85,20 @@ button {
       padding: 0px 0px;
       padding-top: 32px;
     }
+
+    @media screen and (min-width: v.$desktop-1024-screen) {
+      padding: 0px;
+      height: 450px;
+    }
   }
 
   @media screen and (min-width: v.$tablet-540-screen) {
     padding-bottom: 0px;
+  }
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    flex-direction: row-reverse;
+    gap: 64px;
   }
 }
 
@@ -111,6 +127,8 @@ button {
     }
 
     .email-error {
+      display: none;
+
       @include m.input-label(v.$red);
       text-align: right;
     }
@@ -121,8 +139,9 @@ button {
   display: none;
   flex-direction: column;
   width: 100%;
-  height: 623px;
-  padding: 0 24px;
+  max-width: 504px;
+  height: 100vh; // 100vh to fill up mobile screens
+  padding: 24px 24px;
 
   div {
     display: grid;
@@ -153,5 +172,9 @@ button {
   @media screen and (min-width: v.$tablet-540-screen) {
     padding: 0;
     height: auto;
+  }
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    padding: 32px;
   }
 }

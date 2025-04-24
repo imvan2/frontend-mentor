@@ -10,7 +10,7 @@ const validateEmail = (email) => emailRegex.test(email);
 
 // Toggle visibility
 const toggleViews = (showSuccess) => {
-  signupForm.style.display = showSuccess ? "none" : "block";
+  signupForm.style.display = showSuccess ? "none" : "flex";
   successMessage.style.display = showSuccess ? "flex" : "none";
 };
 
@@ -19,7 +19,7 @@ const handleSubmit = (e) => {
   e.preventDefault();
   const isValid = validateEmail(email.value.trim());
 
-  emailError.textContent = isValid ? "" : "Valid email required";
+  emailError.style.display = isValid ? "none" : "block";
 
   email.classList.toggle("input-error", !isValid);
   email.classList.toggle("input", isValid);

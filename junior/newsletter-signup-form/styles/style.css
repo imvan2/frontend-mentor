@@ -21,10 +21,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #242742;
 }
 @media screen and (min-width: 33.75rem) {
   body {
-    background-color: #242742;
     padding: 24px;
   }
 }
@@ -34,16 +34,23 @@ body {
   }
 }
 
+main {
+  background-color: #ffffff;
+}
 @media screen and (min-width: 33.75rem) {
   main {
     border-radius: 36px;
-    background-color: #ffffff;
     padding: 40px;
   }
 }
 @media screen and (min-width: 48rem) {
   main {
     padding: 64px;
+  }
+}
+@media screen and (min-width: 64rem) {
+  main {
+    padding: 32px;
   }
 }
 
@@ -68,10 +75,14 @@ button:active {
 }
 
 .signup-form {
-  display: block;
+  display: flex;
   width: 100%;
+  max-width: 904px;
   height: auto;
   padding-bottom: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .signup-form picture {
   width: 100%;
@@ -142,9 +153,21 @@ button:active {
     padding-top: 32px;
   }
 }
+@media screen and (min-width: 64rem) {
+  .signup-form .info-card {
+    padding: 0px;
+    height: 450px;
+  }
+}
 @media screen and (min-width: 33.75rem) {
   .signup-form {
     padding-bottom: 0px;
+  }
+}
+@media screen and (min-width: 64rem) {
+  .signup-form {
+    flex-direction: row-reverse;
+    gap: 64px;
   }
 }
 
@@ -205,6 +228,7 @@ button:active {
   grid-column: span 2;
 }
 .form div .email-error {
+  display: none;
   font-family: "Roboto Bold", sans-serif;
   line-height: 100%;
   letter-spacing: 0px;
@@ -221,8 +245,9 @@ button:active {
   display: none;
   flex-direction: column;
   width: 100%;
-  height: 623px;
-  padding: 0 24px;
+  max-width: 504px;
+  height: 100vh;
+  padding: 24px 24px;
 }
 .success-message div {
   display: grid;
@@ -257,6 +282,11 @@ button:active {
   .success-message {
     padding: 0;
     height: auto;
+  }
+}
+@media screen and (min-width: 64rem) {
+  .success-message {
+    padding: 32px;
   }
 }
 

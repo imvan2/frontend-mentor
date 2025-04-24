@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // border: 1px solid black;
   font-family: v.$font-main-regular;
 }
 
@@ -16,9 +15,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: v.$blue-800;
 
   @media screen and (min-width: v.$tablet-540-screen) {
-    background-color: v.$blue-800;
     padding: 24px;
   }
 
@@ -28,13 +27,18 @@ body {
 }
 
 main {
+  background-color: v.$white;
+
   @media screen and (min-width: v.$tablet-540-screen) {
     border-radius: 36px;
-    background-color: v.$white;
     padding: 40px;
   }
 
   @media screen and (min-width: v.$tablet-768-screen) {
     padding: 64px;
+  }
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    padding: 32px;
   }
 }

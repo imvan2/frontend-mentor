@@ -1,5 +1,6 @@
 @use "variables" as v;
 
+// Font bases
 @mixin base-text-preset {
   font-family: v.$font-main-bold;
   line-height: 100%;
@@ -33,6 +34,7 @@
   line-height: 150%;
 }
 
+// For the form label
 @mixin input-label($color: v.$blue-800) {
   @include text-preset-3;
   color: $color;
