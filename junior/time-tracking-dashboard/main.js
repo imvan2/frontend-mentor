@@ -83,11 +83,11 @@ const populateDOM = (item, timeline) => {
   const newCard = document.createElement("article");
 
   newCard.innerHTML = `
-  <div id="svg-icon-${titleLowercase}" class="svg-icon" style="background-image: url(../time-tracking-dashboard/images/icon-${titleLowercase}.svg)"></div>
+  <div class="svg-icon" style="background-image: url(../time-tracking-dashboard/images/icon-${titleLowercase}.svg)"></div>
           <div class="main-section">
             <button class="btn-other">
               <span>
-                <p id="${titleLowercase}">${item["title"]}</p>
+                <p>${item["title"]}</p>
               </span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path
