@@ -12,9 +12,11 @@ let dataObj;
 
 // Get data
 const fetchData = () => {
-  fetch("/data.json")
+  fetch(
+    "https://raw.githubusercontent.com/imvan2/frontend-mentor/junior/time-tracking-dashboard/main/data.json"
+  )
     .then((response) => {
-      if (!response.ok) return console.log("Didn't fetch");
+      if (!response.ok) return console.log("Unable to fetch data.");
 
       return response.json();
     })
@@ -81,7 +83,7 @@ const populateDOM = (item, timeline) => {
   const newCard = document.createElement("article");
 
   newCard.innerHTML = `
-  <div id="svg-icon" class="svg-icon" style="background-image: url(/images/icon-${titleLowercase}.svg)"></div>
+  <div id="svg-icon" class="svg-icon" style="background-image: url(../time-tracking-dashboard/images/icon-${titleLowercase}.svg)"></div>
           <div class="main-section">
             <button class="btn-other">
               <p id="title">${item["title"]}</p>
