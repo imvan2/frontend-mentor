@@ -13,7 +13,7 @@ let dataObj;
 // Get data
 const fetchData = () => {
   fetch(
-    "https://imvan2.github.io/frontend-mentor/junior/time-tracking-dashboard/main/data.json"
+    "https://imvan2.github.io/frontend-mentor/junior/time-tracking-dashboard/data.json"
   )
     .then((response) => {
       if (!response.ok) return console.log("Unable to fetch data.");
