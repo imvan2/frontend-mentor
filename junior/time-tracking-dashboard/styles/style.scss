@@ -1,0 +1,146 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "layout";
+
+svg {
+  @include m.ellipse;
+}
+
+.btn-other {
+  @include m.btn-other;
+}
+
+.btn-main {
+  @include m.btn-main;
+}
+
+.card {
+  @include m.card;
+}
+
+.author-card {
+  background-color: v.$navy-900;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  height: 203px;
+
+  .author {
+    background-color: v.$purple-600;
+    border-radius: 15px;
+    padding: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    height: auto;
+
+    img {
+      border: 5px solid v.$grey-200;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+
+      @media screen and (min-width: v.$desktop-1440-screen) {
+        width: 78px;
+        height: 78px;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      gap: 8px;
+
+      p {
+        @include m.text-preset-6;
+        color: v.$navy-200;
+      }
+
+      h1 {
+        @include m.text-preset-4;
+        color: white;
+
+        @media screen and (min-width: v.$desktop-1024-screen) {
+          @include m.text-preset-2;
+        }
+      }
+    }
+
+    @media screen and (min-width: v.$tablet-768-screen) {
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    @media screen and (min-width: v.$desktop-1440-screen) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+      height: 354px;
+    }
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    padding: 24px 0;
+    background-color: v.$navy-900;
+    border-radius: 15px;
+
+    @media screen and (min-width: v.$tablet-768-screen) {
+      .btn-main:first-of-type {
+        justify-self: end;
+      }
+
+      .btn-main:last-of-type {
+        justify-self: start;
+      }
+    }
+
+    @media screen and (min-width: v.$desktop-1440-screen) {
+      grid-template-columns: 1fr;
+      justify-content: flex-start;
+      padding: 32px;
+      gap: 21px;
+
+      .btn-main:first-of-type {
+        justify-self: start;
+      }
+
+      .btn-main {
+        justify-self: start;
+      }
+    }
+  }
+
+  @media screen and (min-width: v.$desktop-1440-screen) {
+    gap: 32px;
+    width: 255px;
+    height: 520px;
+  }
+}
+
+.active {
+  color: white;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  height: auto;
+
+  @media screen and (min-width: v.$tablet-768-screen) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    gap: 32px;
+  }
+}

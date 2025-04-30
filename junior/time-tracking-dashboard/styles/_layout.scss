@@ -1,0 +1,98 @@
+@use "variables" as v;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: "Rubik", sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: v.$navy-950;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 24px 24px;
+  gap: 24px;
+  height: 100%;
+  width: min(100%, 1116px);
+
+  @media screen and (min-width: v.$tablet-768-screen) {
+    // 100% full available width of container
+    // 100% - 612px = remaining space around the card
+    // /2 splits remaining space equally on both sides (center)
+    padding: 0px max(24px, (100% - 612px)/2);
+  }
+
+  @media screen and (min-width: v.$desktop-1440-screen) {
+    gap: 32px;
+    // minmax: defines a size range >= min value and <= to max value
+    grid-template-columns: 255px minmax(0, 1fr);
+    padding: 0;
+  }
+}

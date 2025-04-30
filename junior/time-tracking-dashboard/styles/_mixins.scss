@@ -1,0 +1,197 @@
+@use "variables" as v;
+
+// Fonts
+@mixin text-preset-1 {
+  font-size: 3.5rem; // 56px
+  line-height: 66px;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+
+@mixin text-preset-2 {
+  font-size: 2.5rem; // 40px
+  line-height: 47px;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+
+@mixin text-preset-3 {
+  font-size: 2rem; // 32px
+  line-height: 38px;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+@mixin text-preset-4 {
+  font-size: 1.5rem; // 24px
+  line-height: 28px;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+@mixin text-preset-5-m {
+  font-size: 1.125rem; // 18px
+  line-height: 21px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+@mixin text-preset-5-r {
+  font-size: 1.125rem; // 18px
+  line-height: 21px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+@mixin text-preset-6 {
+  font-size: 0.938rem; // 15px
+  line-height: 18px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+@mixin card {
+  width: 100%;
+  height: auto;
+  min-height: 190px;
+  color: white;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+
+  .svg-icon {
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .main-section {
+    background-color: v.$navy-900;
+    border-radius: 20px;
+    border: none;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+    min-height: 122px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &:hover {
+      background-color: v.$navy-800;
+    }
+    .btn-other {
+      @include btn-other;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .current-time {
+        @include text-preset-1;
+
+        @media screen and (min-width: v.$tablet-768-screen) {
+          // size difference: 3.5rem - 2.5rem = 1rem (16px)
+          // viewport different: 1024px - 768px = 256px
+          // vw needed: (16px/256px) * 100 = 6.25vw > 6vw
+          // calculate rem baseline: 7vw of 768px = 53.76px
+          // to reach 40px at 768px, 40 - 53.76 = -0.86rem
+          font-size: clamp(2.5rem, 6vw - 0.86rem, 3.5rem);
+        }
+      }
+
+      .previous-time {
+        text-align: right;
+        color: v.$navy-200;
+        @include text-preset-6;
+
+        @media screen and (min-width: v.$tablet-768-screen) {
+          font-size: 0.875rem;
+        }
+
+        @media screen and (min-width: v.$desktop-1440-screen) {
+          font-size: 0.938rem;
+        }
+      }
+
+      @media screen and (min-width: v.$tablet-768-screen) {
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+      }
+    }
+
+    @media screen and (min-width: v.$desktop-1440-screen) {
+      height: 199px;
+    }
+  }
+
+  @media screen and (min-width: v.$tablet-768-screen) {
+    height: 213px;
+  }
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    height: 100%;
+  }
+}
+
+@mixin btn-main {
+  color: v.$purple-500;
+  background-color: inherit;
+  width: min-content;
+  height: 21px;
+  border: none;
+  cursor: pointer;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: white;
+  }
+
+  @include text-preset-5-r;
+
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    text-align: left;
+  }
+}
+
+@mixin btn-other {
+  border-radius: inherit;
+  background-color: inherit;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  border: none;
+
+  p {
+    @include text-preset-5-m;
+  }
+}
+
+@mixin ellipse {
+  cursor: pointer;
+  fill: v.$navy-200;
+  width: min-content;
+  height: 100%;
+
+  &:hover {
+    fill: white;
+  }
+
+  @media screen and (min-width: v.$tablet-768-screen) {
+    height: 75%;
+  }
+}
