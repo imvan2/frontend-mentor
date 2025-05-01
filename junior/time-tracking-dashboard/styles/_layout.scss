@@ -89,6 +89,11 @@ main {
     padding: 0px max(24px, (100% - 612px)/2);
   }
 
+  @media screen and (min-width: v.$desktop-1024-screen) {
+    // Set padding so it stays the same size from 1000-1440px
+    padding: 0px 200px;
+  }
+
   @media screen and (min-width: v.$desktop-1440-screen) {
     gap: 32px;
     // minmax: defines a size range >= min value and <= to max value

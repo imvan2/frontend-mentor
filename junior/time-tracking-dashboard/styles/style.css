@@ -84,6 +84,11 @@ main {
     padding: 0px max(24px, (100% - 612px) / 2);
   }
 }
+@media screen and (min-width: 64rem) {
+  main {
+    padding: 0px 200px;
+  }
+}
 @media screen and (min-width: 90rem) {
   main {
     gap: 32px;
@@ -246,6 +251,9 @@ svg:hover {
 @media screen and (min-width: 90rem) {
   .card .main-section {
     height: 199px;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px;
   }
 }
 @media screen and (min-width: 48rem) {
@@ -253,7 +261,7 @@ svg:hover {
     height: 213px;
   }
 }
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 90rem) {
   .card {
     height: 100%;
   }
@@ -311,7 +319,7 @@ svg:hover {
   font-weight: 300;
   color: white;
 }
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 90rem) {
   .author-card .author div h1 {
     font-size: 2.5rem;
     line-height: 47px;
@@ -331,6 +339,7 @@ svg:hover {
     justify-content: flex-start;
     align-items: start;
     height: 354px;
+    gap: 40px;
   }
 }
 .author-card .buttons {
