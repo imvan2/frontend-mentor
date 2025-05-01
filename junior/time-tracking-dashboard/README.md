@@ -50,8 +50,8 @@ Users should be able to:
 
 ### Useful resources
 
-- [CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/) -
-- [Background bleeds in nested divs](https://dev.to/rashidshamloo/css-fixing-background-color-bleed-in-rounded-corners-2kh4) -
+- [CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/) - This article helped me reset my CSS.
+- [Background bleeds in nested divs](https://dev.to/rashidshamloo/css-fixing-background-color-bleed-in-rounded-corners-2kh4) - This helped me fix nested div bleeds with border radius.
 
 ## Author
 
