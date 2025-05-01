@@ -36,9 +36,11 @@ body {
 
 main {
   background-color: #ffffff;
+  min-height: 100vh;
 }
 @media screen and (min-width: 33.75rem) {
   main {
+    min-height: auto;
     border-radius: 36px;
     padding: 40px;
   }
@@ -90,7 +92,7 @@ button:active {
 }
 .signup-form picture .hero-img {
   width: 100%;
-  height: 284px;
+  height: auto;
 }
 @media screen and (min-width: 33.75rem) {
   .signup-form picture .hero-img {

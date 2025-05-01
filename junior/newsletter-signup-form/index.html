@@ -55,7 +55,7 @@
             </ul>
           </div>
 
-          <form id="form" class="form">
+          <form id="form" class="form" novalidate>
             <div>
               <label for="email">Email address</label>
               <span id="email-error" class="email-error" role="alert"
@@ -63,10 +63,11 @@
               >
               <input
                 id="email"
-                type="text"
+                type="email"
                 name="email"
                 class="input"
                 placeholder="email@company.com"
+                required
               />
             </div>
 

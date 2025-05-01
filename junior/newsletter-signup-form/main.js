@@ -33,6 +33,13 @@ const handleSubmit = (e) => {
 // Attach the submit event to the form
 document.getElementById("form").addEventListener("submit", handleSubmit);
 
+// Remove error state when a user begins typing again
+email.addEventListener("keydown", (e) => {
+  emailError.style.display = "none";
+  email.classList.toggle("input-error", false);
+  email.classList.toggle("input", true);
+});
+
 // Close the message
 document.getElementById("dismiss-button").addEventListener("click", (e) => {
   e.preventDefault();
