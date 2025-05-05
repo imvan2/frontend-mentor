@@ -159,11 +159,11 @@ input::placeholder {
 }
 
 .dollar-icon {
-  background: #f3f9fa url("/images/icon-dollar.svg") no-repeat 16px 15px;
+  background: #f3f9fa url("../../tip-calculator-app/images/icon-dollar.svg") no-repeat 16px 15px;
 }
 
 .person-icon {
-  background: #f3f9fa url("/images/icon-person.svg") no-repeat 16px 15px;
+  background: #f3f9fa url("../../tip-calculator-app/images/icon-person.svg") no-repeat 16px 15px;
 }
 
 .calculator {

@@ -35,10 +35,12 @@ input {
 }
 
 .dollar-icon {
-  background: v.$grey-50 url("/images/icon-dollar.svg") no-repeat 16px 15px;
+  background: v.$grey-50 url("../../tip-calculator-app/images/icon-dollar.svg")
+    no-repeat 16px 15px;
 }
 .person-icon {
-  background: v.$grey-50 url("/images/icon-person.svg") no-repeat 16px 15px;
+  background: v.$grey-50 url("../../tip-calculator-app/images/icon-person.svg")
+    no-repeat 16px 15px;
 }
 
 .calculator {
