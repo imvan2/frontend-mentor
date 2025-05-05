@@ -12,13 +12,19 @@ const billInput = document.getElementById("bill");
 const tipInput = document.getElementById("tip");
 const peopleInput = document.getElementById("people");
 
-// Global variables to hold state
-let tip = 0;
-let bill = 0;
-let numPeople = 0;
-let tipPerPerson = 0;
-let billPerPerson = 0;
-let activeTipButton = null;
+// Constants
+const DEFAULT_VALUES = {
+  tip: 0,
+  bill: 0,
+  people: 0,
+  tipPerPerson: 0,
+  billPerPerson: 0,
+  activeTipButton: null,
+};
+
+let state = {
+  ...DEFAULT_VALUES,
+};
 
 const resetBtnFocus = (btn) => {
   if (btn) {
@@ -32,23 +38,31 @@ const resetBtnFocus = (btn) => {
 // Calculate the bill
 const calculateBill = (billAmount, tipAmount, totalPeople) => {
   if (billAmount >= 0 && tipAmount >= 0 && totalPeople) {
-    tipPerPerson = (billAmount * tipAmount) / totalPeople;
-    billPerPerson = (billAmount + tipPerPerson) / totalPeople;
+    state.tipPerPerson = (billAmount * tipAmount) / totalPeople;
+    state.billPerPerson = (billAmount + tipPerPerson) / totalPeople;
 
-    renderAmounts(tipPerPerson, billPerPerson);
+    renderAmounts(state.tipPerPerson, state.billPerPerson);
   }
   return;
 };
 
 const handleTipBtn = (e) => {
-  tip = e.target.value;
-  resetBtnFocus(activeTipButton);
+  state.tip = e.target.value;
+  resetBtnFocus(state.activeTipButton);
 
   // Add focus to selected button
-  activeTipButton = Array.from(tipBtns).filter((btn) => btn.value === tip)[0];
-  activeTipButton.classList.add("selected");
+  state.activeTipButton = Array.from(tipBtns).filter(
+    (btn) => btn.value === state.tip
+  )[0];
+  state.activeTipButton.classList.add("selected");
 
-  calculateBill(bill, tip, numPeople, tipPerPerson, billPerPerson);
+  calculateBill(
+    state.bill,
+    state.tip,
+    state.people,
+    state.tipPerPerson,
+    state.billPerPerson
+  );
 };
 
 tipBtns.forEach((button) => {
@@ -57,9 +71,9 @@ tipBtns.forEach((button) => {
 
 // Handle custom tip input
 const handleTipInput = (e) => {
-  tip = e.target.value;
+  state.tip = e.target.value;
 
-  resetBtnFocus(activeTipButton);
+  resetBtnFocus(state.activeTipButton);
 };
 
 tipInput.addEventListener("input", handleTipInput);
@@ -71,27 +85,32 @@ const renderAmounts = (tipAmount, totalAmount) => {
 };
 
 const assignInputs = {
-  bill: (value) => (bill = Number(value)),
-  tip: (value) => (tip = Number(value) / 100),
+  bill: (value) => (state.bill = Number(value)),
+  tip: (value) => (state.tip = Number(value) / 100),
   people: (value) => {
     if (value !== "" && Number(value) === 0) {
       error.style.display = "block";
       return console.error("Can't be zero");
     }
     error.style.display = "none";
-    numPeople = Number(value);
+    state.people = Number(value);
   },
 };
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log("e.", e.target.value);
 
   let value = e.target.value;
 
   assignInputs[e.target.name](value);
 
-  calculateBill(bill, tip, numPeople, tipPerPerson, billPerPerson);
+  calculateBill(
+    state.bill,
+    state.tip,
+    state.people,
+    state.tipPerPerson,
+    state.billPerPerson
+  );
 };
 
 form.addEventListener("input", handleSubmit);
@@ -100,12 +119,7 @@ const handleReset = (e) => {
   // Reset form values and totals
   e.preventDefault();
 
-  tip = null;
-  bill = null;
-  numPeople = null;
-  tipPerPerson = 0;
-  billPerPerson = 0;
-
+  state = { ...DEFAULT_VALUES };
   resetBtnFocus(activeTipButton);
   renderAmounts(tipPerPerson, billPerPerson);
 
