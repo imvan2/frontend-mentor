@@ -27,7 +27,6 @@ let state = {
 };
 
 const resetBtnFocus = (btn) => {
-  console.log("btn", btn);
   if (btn) {
     btn.classList.remove("selected");
     btn = null;
@@ -59,6 +58,7 @@ const calculateBill = (billAmount, tipAmount, totalPeople) => {
 const handleTipBtn = (e) => {
   state.tip = e.target.value;
   resetBtnFocus(state.activeTipButton);
+  tipInput.value = "";
 
   // Add focus to selected button
   state.activeTipButton = Array.from(tipBtns).filter(
