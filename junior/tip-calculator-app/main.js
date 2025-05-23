@@ -27,6 +27,7 @@ let state = {
 };
 
 const resetBtnFocus = (btn) => {
+  console.log("btn", btn);
   if (btn) {
     btn.classList.remove("selected");
     btn = null;
@@ -35,13 +36,22 @@ const resetBtnFocus = (btn) => {
   return;
 };
 
+// Add $ to totals and round up
+const renderAmounts = (tipAmount, totalAmount) => {
+  tipTotal.innerText = "$" + tipAmount.toFixed(2);
+  total.innerText = "$" + totalAmount.toFixed(2);
+
+  state.tipPerPerson = tipAmount;
+  state.billPerPerson = totalAmount;
+};
+
 // Calculate the bill
 const calculateBill = (billAmount, tipAmount, totalPeople) => {
   if (billAmount >= 0 && tipAmount >= 0 && totalPeople) {
-    state.tipPerPerson = (billAmount * tipAmount) / totalPeople;
-    state.billPerPerson = (billAmount + tipPerPerson) / totalPeople;
+    tipPerPerson = (billAmount * tipAmount) / totalPeople;
+    billPerPerson = (billAmount + tipPerPerson) / totalPeople;
 
-    renderAmounts(state.tipPerPerson, state.billPerPerson);
+    renderAmounts(tipPerPerson, billPerPerson);
   }
   return;
 };
@@ -54,6 +64,7 @@ const handleTipBtn = (e) => {
   state.activeTipButton = Array.from(tipBtns).filter(
     (btn) => btn.value === state.tip
   )[0];
+
   state.activeTipButton.classList.add("selected");
 
   calculateBill(
@@ -77,12 +88,6 @@ const handleTipInput = (e) => {
 };
 
 tipInput.addEventListener("input", handleTipInput);
-
-// Add $ to totals and round up
-const renderAmounts = (tipAmount, totalAmount) => {
-  tipTotal.innerText = "$" + tipAmount.toFixed(2);
-  total.innerText = "$" + totalAmount.toFixed(2);
-};
 
 const assignInputs = {
   bill: (value) => (state.bill = Number(value)),
@@ -118,10 +123,10 @@ form.addEventListener("input", handleSubmit);
 const handleReset = (e) => {
   // Reset form values and totals
   e.preventDefault();
+  resetBtnFocus(state.activeTipButton);
 
   state = { ...DEFAULT_VALUES };
-  resetBtnFocus(activeTipButton);
-  renderAmounts(tipPerPerson, billPerPerson);
+  renderAmounts(state.tipPerPerson, state.billPerPerson);
 
   billInput.value = "";
   tipInput.value = "";
