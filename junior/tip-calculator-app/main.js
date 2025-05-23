@@ -57,6 +57,8 @@ const calculateBill = (billAmount, tipAmount, totalPeople) => {
 
 const handleTipBtn = (e) => {
   state.tip = e.target.value;
+
+  // Reset buttons and input if needed
   resetBtnFocus(state.activeTipButton);
   tipInput.value = "";
 
@@ -84,6 +86,7 @@ tipBtns.forEach((button) => {
 const handleTipInput = (e) => {
   state.tip = e.target.value;
 
+  // Reset tip button if input exist
   resetBtnFocus(state.activeTipButton);
 };
 
