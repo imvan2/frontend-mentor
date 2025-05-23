@@ -26,13 +26,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-![](./screenshot.jpg)
-![](./screenshot.jpg)
+![Desktop](./images/desktop.png)
+![Mobile](./images/mobile.png)
+![Tablet](./images/tablet.png)
 
 ### Links
 
-- Solution URL: [Github](https://your-solution-url.com)
+- Solution URL: [Github](https://github.com/imvan2/frontend-mentor/tree/main/junior/tip-calculator-app)
 - Live Site URL: [Live Site](https://imvan2.github.io/frontend-mentor/junior/tip-calculator-app/)
 
 ## My process
@@ -45,16 +45,17 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- Vanilla JS
+- JavaScript
 
 ### What I learned
 
+I solidified my understanding of SCSS and responsive styles, and polished my JS skills!
+
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/) - This helped me understand what CSS reset styles to use.
 
 ## Author
 
-- Website - [Van Tu](https://www.your-site.com)
+- LinkedIn - [Van Tu](https://www.linkedin.com/in/van-tu/)
 - Frontend Mentor - [@imvan2](https://www.frontendmentor.io/profile/imvan2)
