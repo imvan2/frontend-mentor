@@ -49,12 +49,6 @@
 
   @include text-preset-3();
 
-  //   &:active,
-  //   &:focus {
-  //     background-color: v.$green-400;
-  //     color: v.$green-900;
-  //   }
-
   &:disabled {
     background-color: v.$green-750;
     color: v.$green-800;
@@ -137,16 +131,6 @@
   &::placeholder {
     color: v.$grey-300;
   }
-
-  //   &:focus,
-  //   &:visited {
-  //     outline-color: v.$blue-800;
-  //   }
-
-  //   &:hover {
-  //     outline-color: v.$blue-800;
-  //     color: v.$blue-800;
-  //   }
 }
 
 @mixin input-correct {

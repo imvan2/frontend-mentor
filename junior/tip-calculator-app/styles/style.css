@@ -36,7 +36,7 @@ body {
     padding-bottom: 56px;
   }
 }
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 90rem) {
   body {
     padding: 0 max(0px, (100% - 920px) / 2);
     padding-bottom: 56px;
