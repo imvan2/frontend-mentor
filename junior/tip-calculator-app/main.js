@@ -1,5 +1,5 @@
 // Cache DOM elements
-const form = document.getElementById("calculator");
+const calculatorForm = document.getElementById("calculator");
 const resetBtn = document.getElementById("reset");
 const tipBtns = document
   .getElementById("tip-percentage")
@@ -121,7 +121,7 @@ const handleSubmit = (e) => {
   );
 };
 
-form.addEventListener("input", handleSubmit);
+calculatorForm.addEventListener("input", handleSubmit);
 
 const handleReset = (e) => {
   // Reset form values and totals
