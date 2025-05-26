@@ -34,25 +34,25 @@
         decoding="async"
         loading="eager"
       />
+      <h1>Splitter</h1>
     </header>
 
     <main>
       <form id="calculator" class="calculator" novalidate>
         <div class="bill-amount">
-          <label for="bill">Bill</label>
+          <label class="bill" for="bill">Bill</label>
           <input
             class="dollar-icon"
             id="bill"
             name="bill"
             type="number"
             placeholder="0"
-            style="margin-top: 8px"
           />
         </div>
 
         <div id="tip-percentage" class="tip-percentage">
-          <label for="tip"> Select Tip %</label>
-          <div style="margin-top: 8px">
+          <label class="tip-label" for="tip"> Select Tip %</label>
+          <div>
             <button type="button" class="btn" value="0.05">5%</button>
             <button type="button" class="btn" value="0.10">10%</button>
             <button type="button" class="btn" value="0.15">15%</button>
@@ -70,12 +70,11 @@
 
         <div class="num-people">
           <div>
-            <label for="people">Number of People</label>
+            <label class="people-label" for="people">Number of People</label>
             <span id="error" role="alert" class="error">Can't be zero</span>
           </div>
           <input
             class="person-icon"
-            style="margin-top: 8px"
             id="people"
             name="people"
             type="number"
