@@ -15,14 +15,30 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.visiually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+}
+
 .logo {
   width: 87px;
   height: 54px;
   margin: 50px 0px;
-}
-
-h1 {
-  display: none;
 }
 
 label {
