@@ -35,6 +35,15 @@ const resetBtnFocus = (btn) => {
   return;
 };
 
+const resetResetBtn = (btn, ifReset) => {
+  if (!ifReset) {
+    btn.classList.add("reset", "btn-hover");
+  } else {
+    btn.classList.remove("reset", "btn-hover");
+  }
+  btn.disabled = ifReset;
+};
+
 // Add $ to totals and round up
 const renderAmounts = (tipAmount, totalAmount) => {
   tipTotal.innerText = "$" + tipAmount.toFixed(2);
@@ -50,6 +59,7 @@ const calculateBill = (billAmount, tipAmount, totalPeople) => {
     tipPerPerson = (billAmount * tipAmount) / totalPeople;
     billPerPerson = (billAmount + tipPerPerson) / totalPeople;
 
+    resetResetBtn(resetBtn, false);
     renderAmounts(tipPerPerson, billPerPerson);
   }
   return;
@@ -127,6 +137,7 @@ const handleReset = (e) => {
   // Reset form values and totals
   e.preventDefault();
   resetBtnFocus(state.activeTipButton);
+  resetResetBtn(resetBtn, true);
 
   state = { ...DEFAULT_VALUES };
   renderAmounts(state.tipPerPerson, state.billPerPerson);

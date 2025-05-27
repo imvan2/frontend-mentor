@@ -115,7 +115,9 @@ input {
 
 .btn {
   @include m.btn;
+}
 
+.btn-hover {
   &:hover {
     background-color: v.$green-200;
     color: v.$green-900;

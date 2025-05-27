@@ -250,7 +250,8 @@ input::placeholder {
   color: #085c61;
   cursor: not-allowed;
 }
-.btn:hover {
+
+.btn-hover:hover {
   background-color: #9fe8df;
   color: #00474b;
 }
