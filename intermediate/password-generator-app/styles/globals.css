@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-grey-950: #08070b;
+  --color-grey-900: #14131b;
+  --color-grey-850: #18171f;
+  --color-grey-800: #24232c;
+  --color-grey-700: #54535b;
+  --color-grey-600: #817d92;
+  --color-grey-200: #e6e5ea;
+  --color-green-200: #a4ffaf;
+  --color-yellow-200: #f8cd65;
+  --color-orange-200: #fb7c58;
+  --color-red-200: #f64a4a;
+  --color-dark-blue-1: #14131b;
+  --color-dark-blue-2: #08070b;
+  --font-display: "JetBrains Mono", monospace;
+}
+
+@font-face {
+  font-family: JetBrainsBold;
+  src: url("/public/fonts/static/JetBrainsMono-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-feature-settings: "ss01";
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+@layer components {
+  .text-preset-1 {
+    font-size: 2rem; /* 32px */
+    line-height: 42px;
+    letter-spacing: 0px;
+  }
+
+  .text-preset-2 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 32px;
+    letter-spacing: 0px;
+  }
+
+  .text-preset-3 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .text-preset-4 {
+    font-size: 1rem; /* 16px */
+    line-height: 20px;
+    letter-spacing: 0px;
+  }
+
+  /* Input range styles */
+  input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+
+    height: 8px;
+    background: #18171f;
+  }
+
+  /***** Track Styles *****/
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  /* input[type="range"]::-webkit-slider-runnable-track {
+    background: #053a5f;
+    height: 8px;
+  } */
+
+  /******** Firefox ********/
+  /* input[type="range"]::-moz-range-track {
+    background: #053a5f;
+    height: 8px;
+  } */
+
+  /***** Thumb Styles *****/
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    /* margin-top = (track height in pixels / 2) - (thumb height in pixels /2) */
+    /* margin-top: -10px; Centers thumb on the track */
+    background-color: #e6e5ea;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+  }
+
+  /***** Thumb Styles *****/
+  /***** Firefox *****/
+  input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 50%; /*Replaces default border-radius that FF applies*/
+    background-color: #e6e5ea;
+    height: 28px;
+    width: 28px;
+  }
+
+  /***** Focus Styles *****/
+  /* Removes default focus */
+  input[type="range"]:focus {
+    outline: none;
+  }
+
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  input[type="range"]:focus::-webkit-slider-thumb {
+    border: 2px solid #a4ffaf;
+    background-color: #18171f;
+  }
+
+  /******** Firefox ********/
+  input[type="range"]:focus::-moz-range-thumb {
+    border: 2px solid #a4ffaf;
+    background-color: #18171f;
+  }
+}
+
+body {
+  /* background-color: #171717; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+}
