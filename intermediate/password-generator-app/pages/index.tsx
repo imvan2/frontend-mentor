@@ -49,6 +49,7 @@ export default function Home() {
   );
 
   const [combinedString, setCombinedString] = useState<string>("");
+  const [generateBtnActive, setGenerateBtnActive] = useState<boolean>(false);
 
   const handleCopyClick = () => {
     // Set copy to true
@@ -106,15 +107,14 @@ export default function Home() {
 
   // Handles generate button click
   const handleGenerateClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-
     generatePassword();
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[360px] min-w-[360px] md:min-w-[540px] md:max-w-[540px]">
       {/* Heading */}
       <h1 className="font-bold text-center font-display text-preset-4 text-grey-600 w-full mb-4">
         Password Generator
@@ -134,7 +134,7 @@ export default function Home() {
           </span>
 
           <div
-            className={`z-5 flex justify-center items-center gap-4 hover-filter-green 
+            className={`z-5 flex justify-center items-center gap-4 hover-filter-green
           ${copyClicked ? "active-filter-green" : "inactive-filter-white"}`}
           >
             {copyClicked && (
@@ -147,7 +147,7 @@ export default function Home() {
               height="24"
               alt="Copy Image"
               src={COPYIMG}
-              className="w-[21px] h-[24px] min-w-[21px] min-h-[24px] cursor-pointer"
+              className={`w-[21px] h-[24px] min-w-[21px] min-h-[24px] cursor-pointer `}
               onClick={handleCopyClick}
             />
           </div>
@@ -194,10 +194,13 @@ export default function Home() {
                     id={check}
                     name={check}
                     type="checkbox"
-                    className="w-[20px] h-[20px] accent-green-200"
+                    className="w-[20px] h-[20px] accent-green-200 cursor-pointer hover:border-2 hover:border-green-200"
                     onChange={(e) => handleCheckmarks(e)}
                   />
-                  <label htmlFor={check} className="text-preset-4 font-bold">
+                  <label
+                    htmlFor={check}
+                    className="text-preset-4 font-bold cursor-pointer"
+                  >
                     Include {check}
                   </label>
                 </div>
@@ -238,11 +241,17 @@ export default function Home() {
             {/* Generate Button */}
             {/* TODO: fix clicked button styles */}
             {/*  */}
-            <div
+            <button
               onClick={(e) => handleGenerateClick(e)}
-              className={`text-preset-4 hover-filter-green cursor-pointer flex justify-center items-center gap-4 h-[65px] w-full bg-green-200 text-grey-800 font-bold uppercase
-                hover:bg-grey-800 hover:border hover:border-green-200 hover:text-green-200 hover:filter-green
-                active:bg-grey-800 active:border active:border-green-200 active:text-green-200 active:filter-green`}
+              className={`text-preset-4 hover-filter-green cursor-pointer flex justify-center items-center gap-4 h-[65px] w-full
+                 bg-green-200 text-grey-800 font-bold uppercase
+                //  Mobile: active bg is grey-800 
+               active:bg-grey-800 active:border-2 active:border-green-200 active:text-green-200 active-filter-green
+
+                // Desktop: includes hover effects
+                lg:hover:bg-grey-800 lg:hover:border-2 lg:hover:border-green-200 lg:hover:text-green-200 
+                lg:active:bg-green-200 lg:active:text-grey-800 lg:active:active-filter-revert
+                `}
             >
               Generate
               <Image
@@ -252,7 +261,7 @@ export default function Home() {
                 alt="Right arrow"
                 className="w-[11px] h-[12px]"
               />
-            </div>
+            </button>
           </div>
         </div>
       </div>
