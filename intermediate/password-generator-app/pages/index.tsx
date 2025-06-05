@@ -1,10 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import SVGIMG from "../public/images/icon-arrow-right.svg";
-import COPYIMG from "../public/images/icon-copy.svg";
-import { PwRequirements, PwChecks, Indicators } from "../lib/definitions";
+import { PwChecks } from "../lib/definitions";
 import PasswordOutput from "@/components/passwordOutput";
 import CharLength from "@/components/charLength";
 import PasswordRequiments from "@/components/passwordRequirements";
