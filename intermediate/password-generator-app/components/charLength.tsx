@@ -28,7 +28,7 @@ export default function CharLength({
   };
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4 mb-2">
       <div className="grid grid-cols-[max-content_1fr] items-center">
         <label
           htmlFor="char-length"

@@ -47,7 +47,7 @@ export default function Home() {
           setCopyClicked={setCopyClicked}
         />
 
-        <div className="w-full bg-grey-800 p-[16px] flex flex-col gap-[32px]">
+        <div className="w-full bg-grey-800 p-[16px] md:px-8 md:py-6 flex flex-col gap-[32px]">
           {/* Character length range */}
           <CharLength
             charLength={charLength}

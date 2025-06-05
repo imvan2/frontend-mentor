@@ -18,7 +18,7 @@ export default function PasswordOutput({
     setTimeout(() => setCopyClicked(false), 3000);
   };
   return (
-    <div className="flex justify-between items-center px-8 py-4 w-full h-[80px] bg-grey-800 font-bold mb-4">
+    <div className="flex justify-between items-center px-4 md:px-8 py-4 w-full h-[80px] bg-grey-800 font-bold mb-4 md:mb-6">
       <span
         className={`max-h-[42px] overflow-hidden text-ellipsis text-preset-1 before:content-["P4$5W0rD!"] ${
           password !== ""
