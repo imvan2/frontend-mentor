@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Layout from "@/components/_layout";
 import Image from "next/image";
 import SVGIMG from "../public/images/icon-arrow-right.svg";
 import COPYIMG from "../public/images/icon-copy.svg";
@@ -49,7 +48,6 @@ export default function Home() {
   );
 
   const [combinedString, setCombinedString] = useState<string>("");
-  const [generateBtnActive, setGenerateBtnActive] = useState<boolean>(false);
 
   const handleCopyClick = () => {
     // Set copy to true
@@ -93,9 +91,10 @@ export default function Home() {
     setStrength(e.target.checked ? strength + 1 : strength - 1);
   };
 
-  // Generates password based on requirements
+  // Generate password based on requirements
   const generatePassword = (): string => {
     let pw = "";
+
     for (let i = 0; i < charLength; i++) {
       pw += combinedString.charAt(
         Math.floor(Math.random() * combinedString.length)
@@ -180,7 +179,6 @@ export default function Home() {
             />
           </div>
 
-          {/* TODO: Change checkmark color */}
           {/* Password Checkmarks */}
           <div className="w-full flex flex-col gap-4 text-grey-200">
             {checks.map((check, key) => {
@@ -240,7 +238,6 @@ export default function Home() {
 
             {/* Generate Button */}
             {/* TODO: fix clicked button styles */}
-            {/*  */}
             <button
               onClick={(e) => handleGenerateClick(e)}
               className={`text-preset-4 hover-filter-green cursor-pointer flex justify-center items-center gap-4 h-[65px] w-full

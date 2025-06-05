@@ -28,11 +28,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop](./public/images/desktop.png)
+![Tablet](./public/images/tablet.png)
+![Mobile](./public/images/mobile.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Github](https://github.com/imvan2/frontend-mentor/tree/main/intermediate/password-generator-app)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
