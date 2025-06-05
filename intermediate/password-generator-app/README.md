@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/imvan2/frontend-mentor/tree/main/intermediate/password-generator-app)
-- Live Site URL: [Live Site](https://frontend-mentor-effzl6hny-van-tus-projects.vercel.app/)
+- Live Site URL: [Live Site](https://frontend-mentor-sable-six.vercel.app/)
 
 ## My process
 
