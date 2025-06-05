@@ -100,7 +100,7 @@
 
   input[type="checkbox"] {
     -webkit-appearance: none;
-    border: 2px solid #a4ffaf;
+    border: 2px solid white;
   }
 
   input:checked {
