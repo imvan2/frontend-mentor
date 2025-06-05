@@ -48,13 +48,13 @@ Users should be able to:
 
 ### What I learned
 
-I learned 
+I brushed up my Nextjs (pages) skills.
 
 ### Useful resources
 
-- [](https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/#styling-range-slider-show-track-progress) - This helped me change input range styles and understand how difficult it is to change what looks simple!
-- [](https://medium.com/@farihatulmaria/what-is-the-purpose-of-the-app-js-and-document-js-files-in-a-next-js-application-397f22fed69e) - This is an article that taught me the differences between \_app.js and \_document.js
-- [](https://stackoverflow.com/questions/58163980/input-type-checkbox-cant-style-proprerly) - This helped me change input checkbox styles.
+- [Blog](https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/#styling-range-slider-show-track-progress) - This helped me change input range styles and understand how difficult it is to change what looks simple!
+- [Medium](https://medium.com/@farihatulmaria/what-is-the-purpose-of-the-app-js-and-document-js-files-in-a-next-js-application-397f22fed69e) - This is an article that taught me the differences between \_app.js and \_document.js
+- [StackOverflow](https://stackoverflow.com/questions/58163980/input-type-checkbox-cant-style-proprerly) - This helped me change input checkbox styles.
 
 ## Author
 
