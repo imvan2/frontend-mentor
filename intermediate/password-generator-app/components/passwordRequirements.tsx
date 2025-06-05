@@ -34,6 +34,8 @@ export default function PasswordRequiments({
         : combinedString.replace(pwRequirements[e.target.value], "")
     );
     setStrength(e.target.checked ? strength + 1 : strength - 1);
+
+    // Remove error when clicked
     setCheckmarkError("");
   };
 

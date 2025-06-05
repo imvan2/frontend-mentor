@@ -34,8 +34,6 @@ export default function Home() {
   const [combinedString, setCombinedString] = useState<string>("");
   const [checkmarkError, setCheckmarkError] = useState<string>("");
 
-  console.log("checkmarkError", checkmarkError);
-
   return (
     <div className="w-full max-w-[360px] min-w-[360px] md:min-w-[540px] md:max-w-[540px]">
       {/* Heading */}
