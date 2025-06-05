@@ -220,7 +220,7 @@ export default function Home() {
                     : indicators[strength as keyof Indicators].label}
                 </p>
                 <div className="flex justify-between items-center gap-2">
-                  {Object.entries(indicators).map(([key, value]) => (
+                  {Object.entries(indicators).map(([key]) => (
                     <div
                       key={key}
                       className={`border-2 w-[10px] h-[28px] ${
