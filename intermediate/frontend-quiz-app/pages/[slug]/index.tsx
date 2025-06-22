@@ -9,6 +9,7 @@ import buttons from "@/styles/Buttons.module.css";
 import ThirdBtn from "@/components/thirdBtn";
 import fonts from "@/styles/Fonts.module.css";
 import styles from "@/styles/QuizPage.module.css";
+import Image from "next/image";
 
 // Option letters
 const letters = ["A", "B", "C", "D"];
@@ -59,6 +60,7 @@ export default function QuizPage({
 
     setSelectedOption(value);
     setCorrectAnswer(questions[currentQ].answer);
+    setError("");
   };
 
   // Handles submitting the question
@@ -66,10 +68,11 @@ export default function QuizPage({
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     console.log("selectedOption", selectedOption);
-    if (selectedOption.length < 0 && !selectedOption) {
-      setError("please make a selection");
+    if (selectedOption === "") {
+      setError("Please select an answer");
       return;
     }
+
     setSubmitAnswer(!submitAnswer);
 
     // get answer from the selection
@@ -101,6 +104,7 @@ export default function QuizPage({
     setSubmitAnswer(!submitAnswer);
     setCurrentQ(currentQ + 1);
     setProgress(((currentQ + 1) / maxQuestions) * 100);
+    setSelectedOption("");
     setDisableBtns(false);
   };
 
@@ -153,7 +157,21 @@ export default function QuizPage({
             handleClick={(e) => handleSubmit(e)}
           />
         )}
-        {error.length > 0 && error ? <p>{error}</p> : ""}
+        <div className={`${styles.error_container}`}>
+          {error ? (
+            <>
+              <Image
+                src="../images/icon-incorrect.svg"
+                alt="icon"
+                width={24}
+                height={24}
+              />
+              <span className={`${fonts.txt_preset_4}`}>{error}</span>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );
