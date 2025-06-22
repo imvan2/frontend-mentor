@@ -1,0 +1,117 @@
+.main_wrapper {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-geist-sans);
+  position: relative;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: auto;
+  padding: 16px 0px;
+  z-index: 5;
+}
+
+.icon_container {
+  width: 167px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon_container > div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+}
+
+.icon_container > div > img {
+  width: 28.57px;
+  height: 28.57px;
+}
+
+.page {
+  z-index: 5;
+}
+
+.home_container {
+  padding: 32px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.title_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  z-index: 5;
+}
+
+.main > a {
+  text-decoration: none;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 600px) {
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+.incorrect_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--red-500);
+}

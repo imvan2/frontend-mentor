@@ -1,0 +1,96 @@
+/* Group by font weights */
+.txt_preset_1,
+.txt_preset_1_mobile,
+.txt_preset_2_med,
+.txt_preset_2_med_mobile,
+.txt_preset_3,
+.txt_preset_3_mobile,
+.txt_preset_4,
+.txt_preset_4_mobile,
+.txt_preset_5 {
+  font-weight: 600;
+}
+
+.txt_preset_2_l,
+.txt_preset_2_l_mobile {
+  font-weight: 300;
+}
+
+.txt_preset_5_r,
+.txt_preset_5_mobile,
+.txt_preset_5_i_mobile,
+.txt_preset_6_i {
+  font-weight: 400;
+}
+
+.txt_preset_3 {
+  line-height: 120%;
+}
+
+.txt_preset_5,
+.txt_preset_5_r,
+.txt_preset_5_i_mobile,
+.txt_preset_6_i {
+  line-height: 150%;
+}
+
+.txt_preset_1 {
+  /* 144px */
+  font-size: 9rem;
+}
+
+.txt_preset_2_med,
+.txt_preset_2_l {
+  /* 64px */
+  font-size: 4rem;
+}
+
+.txt_preset_3 {
+  /* 36px */
+  font-size: 2.25rem;
+}
+
+.txt_preset_4 {
+  /* 28px */
+  font-size: 1.75rem;
+}
+
+.txt_preset_5,
+.txt_preset_5_r {
+  /* 24px */
+  font-size: 1.5rem;
+}
+
+.txt_preset_5_i {
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .txt_preset_1 {
+    /* 88px */
+    font-size: 5.5rem;
+  }
+
+  .txt_preset_2_med,
+  .txt_preset_2_l {
+    /* 40px */
+    font-size: 2.5rem;
+  }
+
+  .txt_preset_3,
+  .txt_preset_6_i {
+    /* 20px */
+    font-size: 1.25rem;
+  }
+
+  .txt_preset_4 {
+    /* 18px */
+    font-size: 1.125rem;
+  }
+
+  .txt_preset_5,
+  .txt_preset_5_i {
+    /* 14px */
+    font-size: 0.875rem;
+  }
+}

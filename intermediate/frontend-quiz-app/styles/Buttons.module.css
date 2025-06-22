@@ -1,0 +1,256 @@
+/* Buttons */
+.primary_button {
+  width: 100%;
+  height: auto;
+  padding: 16px;
+  background-color: var(--btn-color-1);
+  cursor: pointer;
+  color: var(--txt-color-1);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+}
+
+.primary_button:hover {
+  opacity: 50%;
+}
+
+.primary_button:active {
+  background-color: var(--btn-color-1);
+  opacity: 100%;
+}
+
+.secondary_button {
+  width: 100%;
+  height: 72px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  color: var(--txt-color-2);
+  background-color: var(--btn-color-2);
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .secondary_button {
+    padding: 24px;
+    gap: 32px;
+  }
+}
+
+.secondary_button:hover {
+  background-color: var(--blue-850);
+  color: white;
+  box-shadow: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
+}
+
+.secondary_button > div {
+  width: 40px;
+  height: 40px;
+  background-color: var(--orange-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.secondary_button > span {
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .secondary_button {
+    color: var(--txt-color-2);
+    background-color: var(--btn-color);
+  }
+}
+
+/* Third Button */
+.third_button {
+  width: 100%;
+  min-height: 72px;
+  height: min-content;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 4fr min-content;
+  color: var(--txt-color-2);
+  background-color: var(--btn-color-3);
+  cursor: pointer;
+  border: 2px solid var(--btn-color-3);
+  border-radius: 12px;
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  text-decoration: none;
+}
+
+.third_button:disabled {
+  pointer-events: none;
+}
+
+.third_button:focus {
+  border: 2px solid var(--purple-600);
+  background-color: white;
+}
+
+.third_button:hover {
+  background-color: white;
+  border: 2px solid var(--purple-600);
+  box-shadow: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
+}
+
+.third_button:focus > .letter_and_answer > .letter_bkg {
+  background-color: var(--purple-600);
+}
+
+.third_button:hover > .letter_and_answer > .letter_bkg {
+  background-color: var(--purple-600);
+}
+
+.letter_and_answer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.letter_bkg {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background-color: var(--grey-50);
+}
+
+.letter {
+  color: var(--gray-500);
+}
+
+.third_button:focus > .letter_and_answer > .letter_bkg > .letter {
+  color: white;
+}
+.third_button:hover > .letter_and_answer > .letter_bkg > .letter {
+  color: white;
+}
+
+.third_button > .letter_and_answer > span {
+  text-decoration: none;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .third_button {
+    padding: 24px;
+    gap: 32px;
+  }
+}
+
+.icon_container {
+  width: 30px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconImg > img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Button container (includes options and submit btn */
+.btn_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Options btn container */
+.option_btns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Dark Mode Toggle */
+.mode_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 128px;
+  height: auto;
+  gap: 8px;
+  margin-left: auto;
+  z-index: 5;
+}
+
+@media (min-width: 600px) {
+  .mode_container {
+    gap: 16px;
+  }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--purple-600);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--purple-600);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 999px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
