@@ -3,8 +3,14 @@ import Link from "next/link";
 import fonts from "@/styles/Fonts.module.css";
 import SecondaryBtn from "@/components/secondaryBtn";
 import data from "@/data.json";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleQuizSelection = (quizTitle: string) => {
+    router.push(`/${quizTitle.toLowerCase()}`);
+  };
   return (
     <div className={`${styles.home_container}`}>
       <section className={styles.title_container}>
@@ -19,13 +25,13 @@ export default function Home() {
 
       <div className={styles.main}>
         {data["quizzes"].map((quiz) => (
-          <Link href={`/${quiz.title.toLowerCase()}`} key={quiz.title}>
-            <SecondaryBtn
-              content={quiz.title}
-              svgImage={quiz.icon}
-              bgColor={quiz.bgColor}
-            />
-          </Link>
+          <SecondaryBtn
+            key={quiz.title}
+            content={quiz.title}
+            svgImage={quiz.icon}
+            bgColor={quiz.bgColor}
+            handleClick={() => handleQuizSelection(quiz.title)}
+          />
         ))}
       </div>
     </div>

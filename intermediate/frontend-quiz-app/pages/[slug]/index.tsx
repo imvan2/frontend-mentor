@@ -10,19 +10,16 @@ import ThirdBtn from "@/components/thirdBtn";
 import fonts from "@/styles/Fonts.module.css";
 import styles from "@/styles/QuizPage.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Option letters
 const letters = ["A", "B", "C", "D"];
 
-// Set HTML for the correct icons
-const incorrectIcon =
-  "<Image src='../images/icon-incorrect.svg' alt='icon' width={50} height={50}/>";
-const correctIcon =
-  "<Image src='../images/icon-correct.svg' alt='icon' width={50} height={50}/>";
-
 export default function QuizPage({
+  title,
   questions,
 }: {
+  title: string;
   questions: { question: string; options: string[]; answer: string }[];
 }) {
   // Question state
@@ -44,6 +41,8 @@ export default function QuizPage({
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [correctAnswer, setCorrectAnswer] = useState<string>("");
   const [ifUserIsCorrect, setIfUserIsCorrect] = useState<boolean>(false);
+
+  const router = useRouter();
 
   // Shuffle question options every time
   useEffect(() => {
@@ -101,11 +100,26 @@ export default function QuizPage({
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setSubmitAnswer(!submitAnswer);
-    setCurrentQ(currentQ + 1);
-    setProgress(((currentQ + 1) / maxQuestions) * 100);
-    setSelectedOption("");
-    setDisableBtns(false);
+    if (maxQuestions > currentQ + 1) {
+      setSubmitAnswer(!submitAnswer);
+      setCurrentQ(currentQ + 1);
+      setProgress(((currentQ + 1) / maxQuestions) * 100);
+      setSelectedOption("");
+      setDisableBtns(false);
+      setIfUserIsCorrect(false);
+    } else {
+      return;
+    }
+  };
+
+  // Routes to the Results page with score and maxQuestions as search params
+  const handleResults = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    router.push(
+      `/${title.toLowerCase()}/results?score=${score}&maxQ=${maxQuestions}`
+    );
   };
 
   // keep track of the question
@@ -139,24 +153,37 @@ export default function QuizPage({
               id={option}
               handleClick={(e) => handleSelection(e)}
               value={option}
-              correctIcon={correctIcon}
-              incorrectIcon={incorrectIcon}
+              // QuizState props
+              submitAnswer={submitAnswer}
+              selectedOption={selectedOption}
+              ifUserIsCorrect={ifUserIsCorrect}
+              correctAnswer={correctAnswer}
               disableBtns={disableBtns}
             />
           ))}
         </div>
 
-        {submitAnswer ? (
-          <PrimaryBtn
-            content="Next Question"
-            handleClick={(e) => handleNextQuestion(e)}
-          />
+        {/* Render a 'Next Question' button or 'Submit Answer' button */}
+        {maxQuestions > currentQ + 1 ? (
+          submitAnswer ? (
+            <PrimaryBtn
+              content="Next Question"
+              handleClick={(e) => handleNextQuestion(e)}
+            />
+          ) : (
+            <PrimaryBtn
+              content="Submit Answer"
+              handleClick={(e) => handleSubmit(e)}
+            />
+          )
         ) : (
           <PrimaryBtn
-            content="Submit Answer"
-            handleClick={(e) => handleSubmit(e)}
+            content="See Results"
+            handleClick={(e) => handleResults(e)}
           />
         )}
+
+        {/* Show error message if exists */}
         <div className={`${styles.error_container}`}>
           {error ? (
             <>
@@ -190,7 +217,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     (q) => q.title.toLowerCase() === params?.slug?.toString().toLowerCase()
   );
   const questions = shuffleArray(quiz?.questions);
+  const title = quiz?.title;
   return {
-    props: { quiz, questions },
+    props: { title, questions },
   };
 };

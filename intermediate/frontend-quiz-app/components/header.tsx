@@ -13,7 +13,7 @@ import { useTheme } from "@/context/ThemeContext";
 
 export default function Header({ title, svgImage, bgColor }: HeaderProps) {
   const { darkMode, toggleTheme } = useTheme();
-  console.log("darkmode", darkMode);
+
   return (
     <header className={`${styles.header_container}`}>
       <div className={`${styles.icon_container}`}>

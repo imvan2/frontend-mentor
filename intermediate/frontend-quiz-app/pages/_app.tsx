@@ -6,11 +6,11 @@ import { Rubik } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/header";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import data from "@/data.json";
 import { useEffect, useState } from "react";
 import { HeaderProps } from "@/lib/definitions";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { usePathname } from "next/navigation";
 
 const rubik = Rubik({
   variable: "--font-rubik",
@@ -23,21 +23,23 @@ const rubik = Rubik({
 // Implement features that apply to the entire app
 // _layout replaces this file and _document in /app
 
-// TODO: Fix the header for this when url changes
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
   const [headerData, setHeaderData] = useState<HeaderProps>({
     title: "",
     svgImage: "",
     bgColor: "",
   });
 
-  useEffect(() => {
-    const { slug } = router.query;
+  const pathname = usePathname();
+  const title = pathname?.replace("/results", "").replace("/", "");
 
-    if (slug) {
+  useEffect(() => {
+    if (pageProps["title"] || title) {
       const quiz = data.quizzes.find(
-        (q) => q.title.toLowerCase() === slug.toString().toLowerCase()
+        (q) =>
+          q.title.toLowerCase() ===
+            pageProps["title"]?.toString().toLowerCase() ||
+          q.title.toLowerCase() === title
       );
 
       if (quiz) {
@@ -55,7 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
         bgColor: "",
       });
     }
-  }, [router.isReady, router.query]);
+  }, [pageProps["title"], title]);
 
   return (
     <ThemeProvider>

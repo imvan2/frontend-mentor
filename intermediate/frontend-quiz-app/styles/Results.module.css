@@ -1,0 +1,33 @@
+.page {
+  padding-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.title {
+  margin-bottom: 40px;
+}
+.results_container {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.score_container {
+}
+
+.score {
+  color: var(--blue-900);
+}
+
+.maxQ {
+  color: var(--grey-500);
+}
