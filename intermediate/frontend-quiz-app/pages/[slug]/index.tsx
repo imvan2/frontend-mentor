@@ -41,6 +41,7 @@ export default function QuizPage({
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [correctAnswer, setCorrectAnswer] = useState<string>("");
   const [ifUserIsCorrect, setIfUserIsCorrect] = useState<boolean>(false);
+  const [resultsBtn, setResultsBtn] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -66,13 +67,15 @@ export default function QuizPage({
   // Handles setting styles depending on user actions
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log("selectedOption", selectedOption);
+
     if (selectedOption === "") {
       setError("Please select an answer");
       return;
     }
 
     setSubmitAnswer(!submitAnswer);
+    setProgress(((currentQ + 1) / maxQuestions) * 100);
+    console.log("progress", ((currentQ + 1) / maxQuestions) * 100);
 
     // get answer from the selection
     // check if answer is correct
@@ -83,33 +86,39 @@ export default function QuizPage({
     const ifCorrectAnswer = correctAnswer === selectedOption;
     setIfUserIsCorrect(ifCorrectAnswer);
     setScore(ifCorrectAnswer ? score + 1 : score);
+
+    // If the user selected the correct answer, highlight the correct border color
     if (ifCorrectAnswer) {
       // Set the selected button styles to green
+
       document.getElementById(`${selectedOption}`)?.classList.add("correct");
     } else {
       // Set the selected button styles to red
       // Set the correct answer to green
       document.getElementById(`${selectedOption}`)?.classList.add("incorrect");
-      document.getElementById(`${correctAnswer}`)?.classList.add("correct");
     }
 
     setDisableBtns(true);
+
+    if (maxQuestions < currentQ + 2) {
+      setResultsBtn(true);
+    }
   };
 
   const handleNextQuestion = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (maxQuestions > currentQ + 1) {
+    if (maxQuestions >= currentQ + 1) {
       setSubmitAnswer(!submitAnswer);
       setCurrentQ(currentQ + 1);
-      setProgress(((currentQ + 1) / maxQuestions) * 100);
+
       setSelectedOption("");
       setDisableBtns(false);
       setIfUserIsCorrect(false);
-    } else {
-      return;
     }
+
+    return;
   };
 
   // Routes to the Results page with score and maxQuestions as search params
@@ -164,7 +173,14 @@ export default function QuizPage({
         </div>
 
         {/* Render a 'Next Question' button or 'Submit Answer' button */}
-        {maxQuestions > currentQ + 1 ? (
+        {/* Submit Answer renders when a user is on a new question */}
+        {/* Next question renders when a user has submitted an answer > if (submitAnswer) */}
+
+        {/* See Results should render when a user is finished  */}
+        <div>{maxQuestions - 1}</div>
+        <div>{currentQ + 1}</div>
+
+        {!resultsBtn ? (
           submitAnswer ? (
             <PrimaryBtn
               content="Next Question"

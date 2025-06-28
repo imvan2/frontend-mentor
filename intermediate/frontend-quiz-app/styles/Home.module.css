@@ -35,11 +35,12 @@
 
 .icon_container > div {
   width: 40px;
+  max-width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1px;
+  border-radius: 8px;
 }
 
 .icon_container > div > img {

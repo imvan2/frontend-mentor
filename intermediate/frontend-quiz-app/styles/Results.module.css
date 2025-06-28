@@ -10,7 +10,7 @@
 .results_container {
   width: 100%;
   height: auto;
-  background-color: white;
+  background-color: var(--background-color);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -21,13 +21,15 @@
   margin-bottom: 16px;
 }
 
-.score_container {
+.icon_override {
+  justify-content: center !important;
+  width: 100% !important;
 }
 
 .score {
-  color: var(--blue-900);
+  color: var(--all-font-color);
 }
 
 .maxQ {
-  color: var(--grey-500);
+  color: var(--secondary-font-color);
 }

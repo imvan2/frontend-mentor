@@ -67,7 +67,10 @@ export default function ResultsPage() {
 
       <div className={`${results.results_container}`}>
         <div className={`${styles.icon_container}`}>
-          <div style={{ backgroundColor: `${headerData.bgColor}` }}>
+          <div
+            style={{ backgroundColor: `${headerData.bgColor}` }}
+            className={`${results.icon_override}`}
+          >
             {headerData.svgImage && headerData.svgImage.length > 0 ? (
               <Image
                 src={headerData.svgImage}

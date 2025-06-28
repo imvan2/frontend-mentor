@@ -37,6 +37,11 @@
   --btn-color-3: white;
 
   --all-font-color: var(--blue-900);
+  --secondary-font-color: var(--grey-500);
+
+  --letter-txt-color: var(--grey-500);
+
+  --background-color: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,7 +54,12 @@
     --txt-color-2: white;
     --btn-color-2: var(--blue-850);
 
+    --btn-color-3: var(--blue-850);
+
     --all-font-color: white;
+    --secondary-font-color: var(--blue-350);
+
+    --background-color: var(--blue-850);
   }
 
   @media (min-width: 768px) {
@@ -74,7 +84,12 @@
   --txt-color-2: white;
   --btn-color-2: var(--blue-850);
 
+  --btn-color-3: var(--blue-850);
+
   --all-font-color: white;
+  --secondary-font-color: var(--blue-350);
+
+  --background-color: var(--blue-850);
 }
 
 html,
@@ -179,8 +194,10 @@ body {
 }
 
 .correct > div:nth-child(1) > div:nth-child(1) {
+  --letter-txt-color: white;
+
   background-color: green !important;
-  color: white !important;
+  color: var(--letter-txt-color) !important;
 }
 
 .incorrect {
@@ -188,6 +205,8 @@ body {
 }
 
 .incorrect > div:nth-child(1) > div:nth-child(1) {
+  --letter-txt-color: white;
+
   background-color: red !important;
-  color: white !important;
+  color: var(--letter-txt-color) !important;
 }
