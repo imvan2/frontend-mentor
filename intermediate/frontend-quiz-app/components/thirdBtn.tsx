@@ -1,4 +1,4 @@
-import buttons from "@/styles/Buttons.module.css";
+import buttons from "@/styles/ThirdBtn.module.css";
 import fonts from "@/styles/Fonts.module.css";
 import Image from "next/image";
 import { ThirdBtnProps } from "@/lib/definitions";
@@ -52,7 +52,9 @@ export default function ThirdBtn({
           <p className={`${buttons.letter}`}>{letter}</p>
         </div>
 
-        <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>{content}</span>
+        <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
+          {content}
+        </span>
       </div>
 
       <div id="icon" className={`${buttons.icon_container}`}>

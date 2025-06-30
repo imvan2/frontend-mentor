@@ -1,5 +1,6 @@
-import buttons from "@/styles/Buttons.module.css";
+import buttons from "@/styles/PrimaryBtn.module.css";
 import fonts from "@/styles/Fonts.module.css";
+
 interface PrimaryBtnProps {
   content: string;
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

@@ -1,0 +1,50 @@
+.secondary_button {
+  width: 100%;
+  height: 72px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  color: var(--txt-color-2);
+  background-color: var(--btn-color-2);
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .secondary_button {
+    padding: 24px;
+    gap: 32px;
+  }
+}
+
+.secondary_button:hover {
+  background-color: var(--blue-850);
+  color: white;
+  box-shadow: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
+}
+
+.secondary_button > div {
+  width: 40px;
+  height: 40px;
+  background-color: var(--orange-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.secondary_button > span {
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .secondary_button {
+    color: var(--txt-color-2);
+    background-color: var(--btn-color);
+  }
+}

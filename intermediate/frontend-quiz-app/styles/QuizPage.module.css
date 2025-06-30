@@ -1,6 +1,7 @@
 .quiz_page {
   padding: 32px 0px;
 }
+
 .question_container {
   display: grid;
   grid-template-columns: 1fr;
@@ -32,6 +33,20 @@
   top: 25%;
   left: 1.5%;
   transition: ease-in;
+}
+
+/* Button container (includes options and submit btn */
+.btn_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Options btn container */
+.option_btns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .error_container {

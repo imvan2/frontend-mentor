@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import buttons from "@/styles/Buttons.module.css";
+import buttons from "@/styles/ToggleMode.module.css";
 import DaylightSVGDark from "@/public/images/icon-sun-dark.svg";
 import DaylightSVGLight from "@/public/images/icon-sun-light.svg";
 import NightlightSVGDark from "@/public/images/icon-moon-dark.svg";

@@ -1,0 +1,20 @@
+.primary_button {
+  width: 100%;
+  height: auto;
+  padding: 16px;
+  background-color: var(--btn-color-1);
+  cursor: pointer;
+  color: var(--txt-color-1);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+}
+
+.primary_button:hover {
+  opacity: 50%;
+}
+
+.primary_button:active {
+  background-color: var(--btn-color-1);
+  opacity: 100%;
+}

@@ -153,8 +153,8 @@ export default function QuizPage({
           ></div>
         </div>
       </div>
-      <div className={`${buttons.btn_container}`}>
-        <div className={`${buttons.option_btns}`}>
+      <div className={`${styles.btn_container}`}>
+        <div className={`${styles.option_btns}`}>
           {options.map((option: string, key: number) => (
             <ThirdBtn
               key={option}

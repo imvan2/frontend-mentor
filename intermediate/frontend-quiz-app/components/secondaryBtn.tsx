@@ -1,5 +1,5 @@
 import Image from "next/image";
-import buttons from "@/styles/Buttons.module.css";
+import buttons from "@/styles/SecondaryBtn.module.css";
 import fonts from "@/styles/Fonts.module.css";
 
 interface SecondaryBtnProps {
