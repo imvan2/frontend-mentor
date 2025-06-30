@@ -10,6 +10,7 @@ import styles from "@/styles/Home.module.css";
 import { HeaderProps } from "@/lib/definitions";
 import fonts from "@/styles/Fonts.module.css";
 import { useTheme } from "@/context/ThemeContext";
+import Link from "next/link";
 
 export default function Header({ title, svgImage, bgColor }: HeaderProps) {
   const { darkMode, toggleTheme } = useTheme();
@@ -17,18 +18,20 @@ export default function Header({ title, svgImage, bgColor }: HeaderProps) {
   return (
     <header className={`${styles.header_container}`}>
       <div className={`${styles.icon_container}`}>
-        <div style={{ backgroundColor: `${bgColor}` }}>
-          {svgImage && svgImage.length > 0 ? (
-            <Image
-              src={svgImage}
-              alt={`${title} icon`}
-              width={29}
-              height={29}
-            />
-          ) : (
-            ""
-          )}
-        </div>
+        <Link href="/">
+          <div style={{ backgroundColor: `${bgColor}` }}>
+            {svgImage && svgImage.length > 0 ? (
+              <Image
+                src={svgImage}
+                alt={`${title} icon`}
+                width={29}
+                height={29}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+        </Link>
 
         <span className={`${fonts.txt_preset_4}`}>{title}</span>
       </div>

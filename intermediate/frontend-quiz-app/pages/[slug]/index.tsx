@@ -61,6 +61,8 @@ export default function QuizPage({
     setSelectedOption(value);
     setCorrectAnswer(questions[currentQ].answer);
     setError("");
+
+    document.getElementById(`${value}`)?.classList.add("selected");
   };
 
   // Handles submitting the question
@@ -75,7 +77,6 @@ export default function QuizPage({
 
     setSubmitAnswer(!submitAnswer);
     setProgress(((currentQ + 1) / maxQuestions) * 100);
-    console.log("progress", ((currentQ + 1) / maxQuestions) * 100);
 
     // get answer from the selection
     // check if answer is correct
@@ -177,8 +178,6 @@ export default function QuizPage({
         {/* Next question renders when a user has submitted an answer > if (submitAnswer) */}
 
         {/* See Results should render when a user is finished  */}
-        <div>{maxQuestions - 1}</div>
-        <div>{currentQ + 1}</div>
 
         {!resultsBtn ? (
           submitAnswer ? (
