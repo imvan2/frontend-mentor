@@ -43,7 +43,7 @@ export default function ThirdBtn({
     <button
       onClick={(e) => handleClick(e)}
       value={value}
-      className={`${buttons.third_button} ${fonts.txt_preset_4}`}
+      className={`${buttons.third_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
       id={id}
       disabled={disableBtns}
     >
@@ -52,7 +52,7 @@ export default function ThirdBtn({
           <p className={`${buttons.letter}`}>{letter}</p>
         </div>
 
-        <span className={`${fonts.txt_preset_4}`}>{content}</span>
+        <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>{content}</span>
       </div>
 
       <div id="icon" className={`${buttons.icon_container}`}>

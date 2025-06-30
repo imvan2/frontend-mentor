@@ -24,7 +24,7 @@ export default function SecondaryBtn({
     <button
       onClick={(e) => handleClick(e)}
       value={value}
-      className={`${buttons.secondary_button} ${fonts.txt_preset_4}`}
+      className={`${buttons.secondary_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
     >
       <div style={{ backgroundColor: `${bgColor}` }}>
         {svgImage ? (

@@ -9,7 +9,7 @@ export default function PrimaryBtn({ handleClick, content }: PrimaryBtnProps) {
   return (
     <button
       onClick={handleClick}
-      className={`${buttons.primary_button} ${fonts.txt_preset_4}`}
+      className={`${buttons.primary_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
     >
       <span>{content}</span>
     </button>

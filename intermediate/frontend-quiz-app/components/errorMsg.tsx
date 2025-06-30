@@ -5,7 +5,9 @@ import IncorrectSVG from "@/public/images/icon-incorrect.svg";
 
 export default function ErrorMsg() {
   return (
-    <div className={`${styles.incorrect_container} ${fonts.txt_preset_5}`}>
+    <div
+      className={`${styles.incorrect_container} ${fonts.txt_preset_5_med} ${fonts.font_styles_3}`}
+    >
       <Image src={IncorrectSVG} alt="Incorrect icon" width={20} height={20} />
       <span>Please select an answer</span>
     </div>

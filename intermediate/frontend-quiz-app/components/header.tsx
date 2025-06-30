@@ -33,7 +33,9 @@ export default function Header({ title, svgImage, bgColor }: HeaderProps) {
           </div>
         </Link>
 
-        <span className={`${fonts.txt_preset_4}`}>{title}</span>
+        <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
+          {title}
+        </span>
       </div>
 
       <div className={`${buttons.mode_container}`}>

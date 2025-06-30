@@ -1,37 +1,20 @@
 /* Group by font weights */
-.txt_preset_1,
-.txt_preset_1_mobile,
-.txt_preset_2_med,
-.txt_preset_2_med_mobile,
-.txt_preset_3,
-.txt_preset_3_mobile,
-.txt_preset_4,
-.txt_preset_4_mobile,
-.txt_preset_5 {
-  font-weight: 600;
+
+/* All fonts */
+
+.font_styles_1 {
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
-.txt_preset_2_l,
-.txt_preset_2_l_mobile {
-  font-weight: 300;
-}
-
-.txt_preset_5_r,
-.txt_preset_5_mobile,
-.txt_preset_5_i_mobile,
-.txt_preset_6_i {
-  font-weight: 400;
-}
-
-.txt_preset_3 {
+.font_styles_2 {
   line-height: 120%;
+  letter-spacing: 0;
 }
 
-.txt_preset_5,
-.txt_preset_5_r,
-.txt_preset_5_i_mobile,
-.txt_preset_6_i {
+.font_styles_3 {
   line-height: 150%;
+  letter-spacing: 0;
 }
 
 .txt_preset_1 {
@@ -40,9 +23,13 @@
 }
 
 .txt_preset_2_med,
-.txt_preset_2_l {
+.txt_preset_2_light {
   /* 64px */
   font-size: 4rem;
+}
+
+.txt_preset_2_light {
+  font-weight: 300;
 }
 
 .txt_preset_3 {
@@ -55,14 +42,33 @@
   font-size: 1.75rem;
 }
 
-.txt_preset_5,
-.txt_preset_5_r {
+.txt_preset_5_med,
+.txt_preset_5_reg {
   /* 24px */
   font-size: 1.5rem;
 }
 
 .txt_preset_5_i {
   font-style: italic;
+  font-size: 0.875rem;
+}
+
+.txt_preset_6_i {
+  /* 20px */
+  font-size: 1.25rem;
+}
+
+.txt_preset_1,
+.txt_preset_2_med,
+.txt_preset_3,
+.txt_preset_4,
+.txt_preset_5 {
+  font-weight: 600;
+}
+
+.txt_preset_5_reg,
+.txt_preset_6_i {
+  font-weight: 400;
 }
 
 @media (max-width: 600px) {
@@ -71,14 +77,13 @@
     font-size: 5.5rem;
   }
 
-  .txt_preset_2_med,
-  .txt_preset_2_l {
+  .txt_preset_2_light,
+  .txt_preset_2_med {
     /* 40px */
     font-size: 2.5rem;
   }
 
-  .txt_preset_3,
-  .txt_preset_6_i {
+  .txt_preset_3 {
     /* 20px */
     font-size: 1.25rem;
   }
@@ -86,11 +91,5 @@
   .txt_preset_4 {
     /* 18px */
     font-size: 1.125rem;
-  }
-
-  .txt_preset_5,
-  .txt_preset_5_i {
-    /* 14px */
-    font-size: 0.875rem;
   }
 }

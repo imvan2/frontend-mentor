@@ -139,10 +139,10 @@ export default function QuizPage({
     <div className={`${styles.quiz_page}`}>
       <div className={`${styles.question_container}`}>
         <div className={`${styles.question}`}>
-          <p className={`${fonts.txt_preset_5_i}`}>
+          <p className={`${fonts.txt_preset_5_i} ${fonts.font_styles_3}`}>
             Question {currentQ + 1} of {questions.length}
           </p>
-          <h1 className={`${fonts.txt_preset_3}`}>
+          <h1 className={`${fonts.txt_preset_3} ${fonts.font_styles_2}`}>
             {questions[currentQ].question}
           </h1>
         </div>
@@ -208,7 +208,9 @@ export default function QuizPage({
                 width={24}
                 height={24}
               />
-              <span className={`${fonts.txt_preset_4}`}>{error}</span>
+              <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
+                {error}
+              </span>
             </>
           ) : (
             ""

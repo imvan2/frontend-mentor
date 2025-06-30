@@ -60,9 +60,13 @@ export default function ResultsPage() {
 
   return (
     <section className={`${results.page}`}>
-      <h1 className={`${results.title} ${fonts.txt_preset_2_l}`}>
+      <h1
+        className={`${results.title} ${fonts.txt_preset_2_light} ${fonts.font_styles_1}`}
+      >
         Quiz completed <br />{" "}
-        <span className={`${fonts.txt_preset_2_med}`}>You scored...</span>
+        <span className={`${fonts.txt_preset_2_med} ${fonts.font_styles_1}`}>
+          You scored...
+        </span>
       </h1>
 
       <div className={`${results.results_container}`}>
@@ -83,11 +87,17 @@ export default function ResultsPage() {
             )}
           </div>
 
-          <span className={`${fonts.txt_preset_4}`}>{headerData.title}</span>
+          <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
+            {headerData.title}
+          </span>
         </div>
 
         <div className={`${results.score_container}`}>
-          <p className={`${results.score} ${fonts.txt_preset_1}`}>{score}</p>
+          <p
+            className={`${results.score} ${fonts.txt_preset_1} ${fonts.font_styles_1} `}
+          >
+            {score}
+          </p>
           <p className={`${results.maxQ}`}>out of {maxQ}</p>
         </div>
       </div>

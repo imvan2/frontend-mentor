@@ -184,10 +184,7 @@ body {
   }
 }
 
-[class="txt_preset_"] {
-  line-height: 100%;
-  letter-spacing: 0;
-}
+
 
 .selected {
   border: 3px solid var(--purple-600);
