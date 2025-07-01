@@ -34,11 +34,12 @@
   --txt-color-2: var(--blue-900);
   --btn-color-2: white;
 
+  /* Third button */
   --btn-color-3: white;
 
+  /* Font colors */
   --all-font-color: var(--blue-900);
   --secondary-font-color: var(--grey-500);
-
   --letter-txt-color: var(--grey-500);
 
   --background-color: white;
@@ -46,8 +47,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #313e51;
+    --foreground: #313e51;
 
     --background-img: url("/images/pattern-background-mobile-dark.svg");
 
@@ -98,6 +99,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
 body {
   background-color: var(--background);
 
@@ -107,6 +114,9 @@ body {
   padding: 0px 24px;
   width: 100%;
   color: var(--all-font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .background_img {
@@ -152,39 +162,28 @@ body {
   .background_img {
     background-size: cover;
     top: 0;
-    left: -1.5%;
+    left: -12%;
   }
 }
-
-/* .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: var(--font-geist-sans);
-  position: relative;
-} */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* border: 1px solid black; */
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
   }
 }
-
-
 
 .selected {
   border: 3px solid var(--purple-600);

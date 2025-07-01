@@ -4,8 +4,7 @@ import fonts from "@/styles/Fonts.module.css";
 
 interface SecondaryBtnProps {
   content: string;
-  svgImage?: string;
-  letter?: string;
+  svgImage: string;
   bgColor: string;
   value?: string;
   handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -15,7 +14,6 @@ interface SecondaryBtnProps {
 export default function SecondaryBtn({
   content,
   svgImage,
-  letter,
   bgColor,
   value,
   handleClick,
@@ -27,11 +25,13 @@ export default function SecondaryBtn({
       className={`${buttons.secondary_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
     >
       <div style={{ backgroundColor: `${bgColor}` }}>
-        {svgImage ? (
-          <Image src={svgImage} alt="HTML icon" width={28} height={28} />
-        ) : (
-          <p>{letter}</p>
-        )}
+        <Image
+          src={svgImage}
+          alt="HTML icon"
+          width={28}
+          height={28}
+          className={`${buttons.image}`}
+        />
       </div>
 
       <span>{content}</span>

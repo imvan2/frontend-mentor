@@ -6,7 +6,7 @@ import DaylightSVGDark from "@/public/images/icon-sun-dark.svg";
 import DaylightSVGLight from "@/public/images/icon-sun-light.svg";
 import NightlightSVGDark from "@/public/images/icon-moon-dark.svg";
 import NightlightSVGLight from "@/public/images/icon-moon-light.svg";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Header.module.css";
 import { HeaderProps } from "@/lib/definitions";
 import fonts from "@/styles/Fonts.module.css";
 import { useTheme } from "@/context/ThemeContext";

@@ -13,16 +13,19 @@ export default function Home() {
   };
   return (
     <div className={`${styles.home_container}`}>
+      {/* Title */}
       <section className={styles.title_container}>
         <h1
-          className={`${fonts.txt_preset_2_light} ${fonts.font_styles_1} ${styles.title}`}
+          className={`${fonts.txt_preset_2_light} ${fonts.font_styles_1}`}
         >
           Welcome to the{" "}
           <span className={`${fonts.txt_preset_2_med} ${fonts.font_styles_1}`}>
             Frontend Quiz!
           </span>
         </h1>
-        <p className={`${fonts.txt_preset_5_i} ${fonts.font_styles_3}`}>
+        <p
+          className={`${fonts.txt_preset_5_i} ${fonts.font_styles_3}`}
+        >
           Pick a subject to get started.
         </p>
       </section>

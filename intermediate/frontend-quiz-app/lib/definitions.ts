@@ -19,3 +19,7 @@ export interface ThirdBtnProps extends QuizState {
   id: string;
   handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+export interface ErrorMsgProps {
+  error: string;
+}

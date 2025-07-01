@@ -31,5 +31,6 @@
 }
 
 .maxQ {
+  text-align: center;
   color: var(--secondary-font-color);
 }

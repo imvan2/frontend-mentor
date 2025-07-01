@@ -1,15 +1,15 @@
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 import fonts from "@/styles/Fonts.module.css";
 import IncorrectSVG from "@/public/images/icon-incorrect.svg";
+import { ErrorMsgProps } from "@/lib/definitions";
 
-export default function ErrorMsg() {
+export default function ErrorMsg({ error }: ErrorMsgProps) {
   return (
-    <div
-      className={`${styles.incorrect_container} ${fonts.txt_preset_5_med} ${fonts.font_styles_3}`}
-    >
-      <Image src={IncorrectSVG} alt="Incorrect icon" width={20} height={20} />
-      <span>Please select an answer</span>
-    </div>
+    <>
+      <Image src={IncorrectSVG} alt="icon" width={24} height={24} />
+      <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
+        {error}
+      </span>
+    </>
   );
 }

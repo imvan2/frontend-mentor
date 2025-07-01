@@ -11,6 +11,7 @@ import fonts from "@/styles/Fonts.module.css";
 import styles from "@/styles/QuizPage.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import ErrorMsg from "@/components/errorMsg";
 
 // Option letters
 const letters = ["A", "B", "C", "D"];
@@ -200,21 +201,7 @@ export default function QuizPage({
 
         {/* Show error message if exists */}
         <div className={`${styles.error_container}`}>
-          {error ? (
-            <>
-              <Image
-                src="../images/icon-incorrect.svg"
-                alt="icon"
-                width={24}
-                height={24}
-              />
-              <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
-                {error}
-              </span>
-            </>
-          ) : (
-            ""
-          )}
+          {error ? <ErrorMsg error={error} /> : ""}
         </div>
       </div>
     </div>

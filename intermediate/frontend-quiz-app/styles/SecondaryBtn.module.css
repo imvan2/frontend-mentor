@@ -17,8 +17,16 @@
 
 @media (min-width: 768px) {
   .secondary_button {
+    height: 88px;
     padding: 24px;
+    border-radius: 24px;
     gap: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .secondary_button {
+    height: 104px;
   }
 }
 
@@ -36,6 +44,23 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+}
+
+.image {
+  width: 28.57px;
+  height: 28.57px;
+}
+
+@media (min-width: 768px) {
+  .secondary_button > div {
+    width: 56px;
+    height: 56px;
+  }
+
+  .image {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .secondary_button > span {

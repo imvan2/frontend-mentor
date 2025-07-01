@@ -3,7 +3,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Rubik } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/App.module.css";
 import Header from "@/components/header";
 import Head from "next/head";
 import data from "@/data.json";
@@ -72,7 +72,7 @@ export default function App({ Component, pageProps }: AppProps) {
           svgImage={headerData.svgImage}
           bgColor={headerData.bgColor}
         />
-        <main className={`${styles.page} ${rubik.variable}`}>
+        <main className={`${styles.page_components} ${rubik.variable}`}>
           <Component {...pageProps} />
         </main>
       </div>
