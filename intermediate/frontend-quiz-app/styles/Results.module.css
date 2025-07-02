@@ -29,11 +29,18 @@
   margin-bottom: 16px;
 }
 
+@media (min-width: 768px) {
+  .results_container {
+    margin-bottom: 32px;
+  }
+}
+
 @media (min-width: 1440px) {
   .results_container {
     height: 388px;
     padding: 48px;
     border-radius: 24px;
+    margin-bottom: 32px;
   }
 }
 
@@ -75,7 +82,7 @@
   height: 28.57px;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 768px) {
   .icon_container > div {
     width: 56px;
     height: 56px;
