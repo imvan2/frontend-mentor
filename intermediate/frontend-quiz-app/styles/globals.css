@@ -43,6 +43,8 @@
   --letter-txt-color: var(--grey-500);
 
   --background-color: white;
+
+  --progress_bar_bg: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,6 +63,8 @@
     --secondary-font-color: var(--blue-350);
 
     --background-color: var(--blue-850);
+
+    --progress_bar_bg: var(--blue-850);
   }
 
   @media (min-width: 768px) {
@@ -91,6 +95,8 @@
   --secondary-font-color: var(--blue-350);
 
   --background-color: var(--blue-850);
+
+  --progress_bar_bg: var(--blue-850);
 }
 
 html,

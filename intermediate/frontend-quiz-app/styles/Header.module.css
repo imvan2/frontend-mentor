@@ -24,7 +24,7 @@
   gap: 16px;
 }
 
-.icon_container > div {
+.icon_container > a > div {
   width: 40px;
   max-width: 40px;
   height: 40px;
@@ -34,7 +34,7 @@
   border-radius: 8px;
 }
 
-.icon_container > div > img {
+.icon_container > a > div > img {
   width: 28.57px;
   height: 28.57px;
 }

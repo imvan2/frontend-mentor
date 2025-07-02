@@ -154,6 +154,7 @@ export default function QuizPage({
           ></div>
         </div>
       </div>
+      
       <div className={`${styles.btn_container}`}>
         <div className={`${styles.option_btns}`}>
           {options.map((option: string, key: number) => (

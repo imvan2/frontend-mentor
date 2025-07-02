@@ -69,40 +69,43 @@ export default function ResultsPage() {
         </span>
       </h1>
 
-      <div className={`${results.results_container}`}>
-        <div className={`${styles.icon_container}`}>
-          <div
-            style={{ backgroundColor: `${headerData.bgColor}` }}
-            className={`${results.icon_override}`}
-          >
-            {headerData.svgImage && headerData.svgImage.length > 0 ? (
-              <Image
-                src={headerData.svgImage}
-                alt={`${title} icon`}
-                width={29}
-                height={29}
-              />
-            ) : (
-              ""
-            )}
+      <div>
+        <div className={`${results.results_container}`}>
+          <div className={`${results.icon_container}`}>
+            <div style={{ backgroundColor: `${headerData.bgColor}` }}>
+              {headerData.svgImage && headerData.svgImage.length > 0 ? (
+                <Image
+                  src={headerData.svgImage}
+                  alt={`${title} icon`}
+                  width={29}
+                  height={29}
+                />
+              ) : (
+                ""
+              )}
+            </div>
+
+            <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
+              {headerData.title}
+            </span>
           </div>
 
-          <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
-            {headerData.title}
-          </span>
+          <div className={`${results.score_container}`}>
+            <p
+              className={`${results.score} ${fonts.txt_preset_1} ${fonts.font_styles_1} `}
+            >
+              {score}
+            </p>
+            <p
+              className={`${results.maxQ} ${fonts.txt_preset_5_reg} ${fonts.font_styles_3}`}
+            >
+              out of {maxQ}
+            </p>
+          </div>
         </div>
 
-        <div className={`${results.score_container}`}>
-          <p
-            className={`${results.score} ${fonts.txt_preset_1} ${fonts.font_styles_1} `}
-          >
-            {score}
-          </p>
-          <p className={`${results.maxQ}`}>out of {maxQ}</p>
-        </div>
+        <PrimaryBtn content="Play Again" handleClick={handlePlayAgain} />
       </div>
-
-      <PrimaryBtn content="Play Again" handleClick={handlePlayAgain} />
     </section>
   );
 }

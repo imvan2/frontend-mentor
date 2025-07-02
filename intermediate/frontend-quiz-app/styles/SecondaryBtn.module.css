@@ -70,6 +70,6 @@
 @media (prefers-color-scheme: dark) {
   .secondary_button {
     color: var(--txt-color-2);
-    background-color: var(--btn-color);
+    background-color: var(--btn-color-2);
   }
 }

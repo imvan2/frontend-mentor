@@ -27,9 +27,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // if the user prefers dark mode, set dark mode to true
     // if user switches the theme to dark mode, set dark mode to true
     // else, false
-    setDarkMode(savedTheme === "dark" || prefersDark ? true : false);
+    setDarkMode(savedTheme === "light" && !prefersDark ? false : true);
   }, []);
-
+  console.log("darkmode", darkMode);
   useEffect(() => {
     // Apply theme class to document
     if (darkMode) {

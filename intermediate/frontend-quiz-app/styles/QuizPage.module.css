@@ -1,5 +1,14 @@
 .quiz_page {
   padding: 32px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1440px) {
+  .quiz_page {
+    grid-template-columns: 1fr 1fr;
+    gap: 128px;
+  }
 }
 
 .question_container {
@@ -7,18 +16,32 @@
   grid-template-columns: 1fr;
   gap: 24px;
   padding-bottom: 40px;
+  height: min-content;
+}
+
+@media (min-width: 1440px) {
+  .question_container {
+    gap: 128px;
+  }
 }
 
 .question {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  height: min-content;
+}
+
+@media (min-width: 1440px) {
+  .question {
+    gap: 24px;
+  }
 }
 
 .progress_bar {
   width: 100%;
   height: 16px;
-  background-color: white;
+  background-color: var(--progress_bar_bg);
   border-radius: 999px;
   position: relative;
 }
