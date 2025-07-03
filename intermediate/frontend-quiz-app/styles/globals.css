@@ -47,7 +47,7 @@
   --progress_bar_bg: white;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #313e51;
     --foreground: #313e51;
@@ -78,7 +78,7 @@
       --background-img: url("/images/pattern-background-desktop-dark.svg");
     }
   }
-}
+} */
 
 .dark {
   --background: #313e51;

@@ -24,12 +24,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    // if the user prefers dark mode, set dark mode to true
-    // if user switches the theme to dark mode, set dark mode to true
-    // else, false
-    setDarkMode(savedTheme === "light" && !prefersDark ? false : true);
+    if (savedTheme) {
+      setDarkMode(savedTheme === "dark");
+    } else {
+      setDarkMode(prefersDark);
+    }
   }, []);
-  console.log("darkmode", darkMode);
+
   useEffect(() => {
     // Apply theme class to document
     if (darkMode) {
