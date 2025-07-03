@@ -5,11 +5,9 @@ import data from "@/data.json";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import shuffleArray from "@/utils/shuffleArray";
-import buttons from "@/styles/Buttons.module.css";
 import ThirdBtn from "@/components/thirdBtn";
 import fonts from "@/styles/Fonts.module.css";
 import styles from "@/styles/QuizPage.module.css";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ErrorMsg from "@/components/errorMsg";
 

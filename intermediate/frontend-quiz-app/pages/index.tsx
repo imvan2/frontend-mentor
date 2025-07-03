@@ -1,5 +1,4 @@
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
 import fonts from "@/styles/Fonts.module.css";
 import SecondaryBtn from "@/components/secondaryBtn";
 import data from "@/data.json";
@@ -15,17 +14,13 @@ export default function Home() {
     <div className={`${styles.home_container}`}>
       {/* Title */}
       <section className={styles.title_container}>
-        <h1
-          className={`${fonts.txt_preset_2_light} ${fonts.font_styles_1}`}
-        >
+        <h1 className={`${fonts.txt_preset_2_light} ${fonts.font_styles_1}`}>
           Welcome to the{" "}
           <span className={`${fonts.txt_preset_2_med} ${fonts.font_styles_1}`}>
             Frontend Quiz!
           </span>
         </h1>
-        <p
-          className={`${fonts.txt_preset_5_i} ${fonts.font_styles_3}`}
-        >
+        <p className={`${fonts.txt_preset_5_i} ${fonts.font_styles_3}`}>
           Pick a subject to get started.
         </p>
       </section>

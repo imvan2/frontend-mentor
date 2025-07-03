@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import styles from "@/styles/Home.module.css";
 import fonts from "@/styles/Fonts.module.css";
 import { useRouter } from "next/navigation";
 import PrimaryBtn from "@/components/primaryBtn";
