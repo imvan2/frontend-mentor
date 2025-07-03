@@ -20,19 +20,20 @@ export default function SecondaryBtn({
 }: SecondaryBtnProps) {
   return (
     <button
+      type="button"
       onClick={(e) => handleClick(e)}
       value={value}
       className={`${buttons.secondary_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
     >
-      <div style={{ backgroundColor: `${bgColor}` }}>
+      <span style={{ backgroundColor: `${bgColor}` }}>
         <Image
           src={svgImage}
-          alt="HTML icon"
+          alt={`${content} icon`}
           width={28}
           height={28}
           className={`${buttons.image}`}
         />
-      </div>
+      </span>
 
       <span>{content}</span>
     </button>

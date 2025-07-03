@@ -79,7 +79,7 @@
   color: white;
 }
 
-.third_button > .letter_and_answer > span {
+.third_button > .letter_and_answer > span:last-child {
   text-decoration: none;
   text-align: left;
 }

@@ -9,6 +9,7 @@ interface PrimaryBtnProps {
 export default function PrimaryBtn({ handleClick, content }: PrimaryBtnProps) {
   return (
     <button
+      type="button"
       onClick={handleClick}
       className={`${buttons.primary_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
     >

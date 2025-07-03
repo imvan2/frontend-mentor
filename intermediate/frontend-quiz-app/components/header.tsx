@@ -18,7 +18,7 @@ export default function Header({ title, svgImage, bgColor }: HeaderProps) {
   return (
     <header className={`${styles.header_container}`}>
       <div className={`${styles.icon_container}`}>
-        <Link href="/">
+        <Link href="/" aria-label="Home">
           <div style={{ backgroundColor: `${bgColor}` }}>
             {svgImage && svgImage.length > 0 ? (
               <Image
@@ -45,8 +45,14 @@ export default function Header({ title, svgImage, bgColor }: HeaderProps) {
           width={20}
           height={20}
         />
-        <label className={`${buttons.switch}`}>
-          <input type="checkbox" checked={darkMode} onChange={toggleTheme} />
+        <label htmlFor="darkMode-toggle" className={`${buttons.switch}`}>
+          <input
+            id="darkMode-toggle"
+            aria-label="Dark mode toggle"
+            type="checkbox"
+            checked={darkMode}
+            onChange={toggleTheme}
+          />
           <span className={`${buttons.slider} ${buttons.round}`}></span>
         </label>
         <Image

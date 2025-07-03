@@ -77,11 +77,6 @@ export default function QuizPage({
     setSubmitAnswer(!submitAnswer);
     setProgress(((currentQ + 1) / maxQuestions) * 100);
 
-    // get answer from the selection
-    // check if answer is correct
-    // if it is, change the border color to green
-    // if not, change the border color to red
-
     // Boolean check if the user is correct
     const ifCorrectAnswer = correctAnswer === selectedOption;
     setIfUserIsCorrect(ifCorrectAnswer);
@@ -90,11 +85,9 @@ export default function QuizPage({
     // If the user selected the correct answer, highlight the correct border color
     if (ifCorrectAnswer) {
       // Set the selected button styles to green
-
       document.getElementById(`${selectedOption}`)?.classList.add("correct");
     } else {
       // Set the selected button styles to red
-      // Set the correct answer to green
       document.getElementById(`${selectedOption}`)?.classList.add("incorrect");
     }
 

@@ -41,26 +41,27 @@ export default function ThirdBtn({
   const showIncorrectIcon = submitAnswer && isSelected && !ifUserIsCorrect;
   return (
     <button
+      type="button"
       onClick={(e) => handleClick(e)}
       value={value}
       className={`${buttons.third_button} ${fonts.txt_preset_4} ${fonts.font_styles_1}`}
       id={id}
       disabled={disableBtns}
     >
-      <div className={`${buttons.letter_and_answer}`}>
-        <div className={`${buttons.letter_bkg}`}>
+      <span className={`${buttons.letter_and_answer}`}>
+        <span className={`${buttons.letter_bkg}`}>
           <p className={`${buttons.letter}`}>{letter}</p>
-        </div>
+        </span>
 
         <span className={`${fonts.txt_preset_4} ${fonts.font_styles_1}`}>
           {content}
         </span>
-      </div>
+      </span>
 
-      <div id="icon" className={`${buttons.icon_container}`}>
+      <span id="icon" className={`${buttons.icon_container}`}>
         {showCorrectIcon && <AnswerIcon isCorrect={true} />}
         {showIncorrectIcon && <AnswerIcon isCorrect={false} />}
-      </div>
+      </span>
     </button>
   );
 }
