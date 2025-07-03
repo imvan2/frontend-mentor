@@ -45,7 +45,7 @@ export default function Header({ title, svgImage, bgColor }: HeaderProps) {
           width={20}
           height={20}
         />
-        <label htmlFor="darkMode-toggle" className={`${buttons.switch}`}>
+        <label className={`${buttons.switch}`}>
           <input
             id="darkMode-toggle"
             aria-label="Dark mode toggle"
