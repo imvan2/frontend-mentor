@@ -3,7 +3,7 @@
 import PrimaryBtn from "@/components/primaryBtn";
 import data from "@/data.json";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useState, useReducer, useMemo } from "react";
 import shuffleArray from "@/utils/shuffleArray";
 import ThirdBtn from "@/components/thirdBtn";
 import fonts from "@/styles/Fonts.module.css";
@@ -27,7 +27,6 @@ export default function QuizPage({
   title: string;
   questions: { question: string; options: string[]; answer: string }[];
 }) {
-  const [options, setOptions] = useState([]);
   const [currentQ, setCurrentQ] = useState<number>(0);
   const [error, setError] = useState<string>("");
   const [score, setScore] = useState<number>(0);
@@ -37,12 +36,6 @@ export default function QuizPage({
   const [quizState, dispatch] = useReducer(QuizStateReducer, initialQuizState);
 
   const router = useRouter();
-
-  // Shuffle question options every time
-  useEffect(() => {
-    const shuffledArray = shuffleArray(questions[currentQ].options);
-    setOptions(shuffledArray);
-  }, [currentQ]);
 
   // Handle option selection
   // Keep track of the answer selected
@@ -115,8 +108,6 @@ export default function QuizPage({
         progress: quizState.progress && quizState.progress,
       });
     }
-
-    return;
   };
 
   // Routes to the Results page with score and maxQuestions as search params
@@ -150,7 +141,7 @@ export default function QuizPage({
 
       <div className={`${styles.btn_container}`}>
         <div className={`${styles.option_btns}`}>
-          {options.map((option: string, key: number) => (
+          {questions[currentQ].options.map((option: string, key: number) => (
             <ThirdBtn
               key={option}
               content={option}
@@ -203,6 +194,7 @@ export default function QuizPage({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  // Paths: /html, /css, /javascript, /accessibility
   const paths = data.quizzes.map((quiz) => ({
     params: { slug: quiz.title.toLowerCase() },
   }));
@@ -215,6 +207,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     (q) => q.title.toLowerCase() === params?.slug?.toString().toLowerCase()
   );
   const questions = shuffleArray(quiz?.questions);
+
+  // Shuffle options for each question
+  quiz?.questions.forEach((question) => {
+    const newArray = shuffleArray(question.options);
+    question.options = newArray;
+  });
+
   const title = quiz?.title;
   return {
     props: { title, questions },
@@ -223,14 +222,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 type QuizActions = SelectOptionAction | SubmitAction | NextAction;
 
+const initialQuizState: QuizState = {
+  submitAnswer: false,
+  selectedOption: "",
+  correctAnswer: "",
+  ifUserIsCorrect: false,
+  resultsBtn: false,
+  disableBtns: false,
+  progress: 1,
+};
+
 function QuizStateReducer(
   quizState: QuizState,
   action: QuizActions
 ): QuizState {
   switch (action.type) {
     // Handle option selection
-    // Keep track of the answer selected
-    // Keep track of the correct answer
     case "SELECT_OPTION": {
       return {
         ...quizState,
@@ -238,6 +245,7 @@ function QuizStateReducer(
         correctAnswer: action.correctAnswer,
       };
     }
+    // Handle submit answer
     case "SUBMIT": {
       return {
         ...quizState,
@@ -248,6 +256,7 @@ function QuizStateReducer(
         progress: action.progress && action.progress,
       };
     }
+    // Handle next
     case "NEXT": {
       return {
         ...initialQuizState,
@@ -260,13 +269,3 @@ function QuizStateReducer(
     }
   }
 }
-
-const initialQuizState: QuizState = {
-  submitAnswer: false,
-  selectedOption: "",
-  correctAnswer: "",
-  ifUserIsCorrect: false,
-  resultsBtn: false,
-  disableBtns: false,
-  progress: 1,
-};
