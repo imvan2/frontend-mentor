@@ -9,6 +9,7 @@ export interface QuizState {
   selectedOption: string;
   ifUserIsCorrect: boolean;
   correctAnswer: string;
+  resultsBtn: boolean;
   disableBtns: boolean;
 }
 
@@ -22,4 +23,27 @@ export interface ThirdBtnProps extends QuizState {
 
 export interface ErrorMsgProps {
   error: string;
+}
+
+// useRender Action types
+export interface SelectOptionAction {
+  type: "SELECT_OPTION";
+  selectedOption: string;
+  correctAnswer: string;
+  ifUserIsCorrect: boolean;
+}
+
+export interface SubmitAction {
+  type: "SUBMIT";
+  resultsBtn: boolean;
+  disableBtns: boolean;
+  submitAnswer: boolean;
+}
+
+export interface NextAction {
+  type: "NEXT";
+  resultsBtn: boolean;
+  ifUserIsCorrect: boolean;
+  disableBtns: boolean;
+  submitAnswer: boolean;
 }

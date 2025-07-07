@@ -10,6 +10,12 @@ import fonts from "@/styles/Fonts.module.css";
 import styles from "@/styles/QuizPage.module.css";
 import { useRouter } from "next/navigation";
 import ErrorMsg from "@/components/errorMsg";
+import {
+  QuizState,
+  SelectOptionAction,
+  SubmitAction,
+  NextAction,
+} from "@/lib/definitions";
 
 // Option letters
 const letters = ["A", "B", "C", "D"];
@@ -46,21 +52,19 @@ export default function QuizPage({
     const value = e.currentTarget.value;
 
     dispatch({
-      type: "select option",
+      type: "SELECT_OPTION",
       selectedOption: value,
       correctAnswer: questions[currentQ].answer,
       ifUserIsCorrect: value == questions[currentQ].answer,
     });
     setError("");
-
-    // document.getElementById(`${value}`)?.classList.add("selected");
   };
 
   // Handles submitting the question
-  // Handles setting styles depending on user actions
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
+    // Error if user hasn't selected an answer
     if (quizState.selectedOption === "") {
       setError("Please select an answer");
       return;
@@ -74,13 +78,14 @@ export default function QuizPage({
 
     if (maxQuestions < currentQ + 2) {
       dispatch({
-        type: "submit",
+        type: "SUBMIT",
         resultsBtn: true,
         disableBtns: true,
+        submitAnswer: true,
       });
     } else {
       dispatch({
-        type: "submit",
+        type: "NEXT",
         resultsBtn: false,
         ifUserIsCorrect: ifCorrectAnswer,
         disableBtns: true,
@@ -94,11 +99,14 @@ export default function QuizPage({
   ) => {
     e.preventDefault();
     if (maxQuestions >= currentQ + 1) {
-      // setSubmitAnswer(!submitAnswer);
       setCurrentQ(currentQ + 1);
 
       dispatch({
-        type: "next",
+        type: "NEXT",
+        resultsBtn: false,
+        ifUserIsCorrect: false,
+        disableBtns: false,
+        submitAnswer: false,
       });
     }
 
@@ -115,9 +123,6 @@ export default function QuizPage({
     );
   };
 
-  // keep track of the question
-  // map over the options
-  // save the number of correct answers
   return (
     <div className={`${styles.quiz_page}`}>
       <div className={`${styles.question_container}`}>
@@ -153,6 +158,7 @@ export default function QuizPage({
               ifUserIsCorrect={quizState.ifUserIsCorrect}
               correctAnswer={quizState.correctAnswer}
               disableBtns={quizState.disableBtns}
+              resultsBtn={quizState.resultsBtn}
             />
           ))}
         </div>
@@ -210,12 +216,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-function QuizStateReducer(quizState, action) {
+type QuizActions = SelectOptionAction | SubmitAction | NextAction;
+
+function QuizStateReducer(
+  quizState: QuizState,
+  action: QuizActions
+): QuizState {
   switch (action.type) {
     // Handle option selection
     // Keep track of the answer selected
     // Keep track of the correct answer
-    case "select option": {
+    case "SELECT_OPTION": {
       return {
         ...quizState,
         selectedOption: action.selectedOption,
@@ -223,7 +234,7 @@ function QuizStateReducer(quizState, action) {
         ifUserIsCorrect: action.ifUserIsCorrect,
       };
     }
-    case "submit": {
+    case "SUBMIT": {
       return {
         ...quizState,
         resultsBtn: action.resultsBtn,
@@ -231,21 +242,20 @@ function QuizStateReducer(quizState, action) {
         submitAnswer: action.submitAnswer,
       };
     }
-    case "next": {
+    case "NEXT": {
       return {
         ...initialQuizState,
+        resultsBtn: action.resultsBtn,
+        ifUserIsCorrect: action.ifUserIsCorrect,
+        disableBtns: action.disableBtns,
+        submitAnswer: action.submitAnswer,
       };
     }
   }
+  return initialQuizState;
 }
 
-const initialUserActions = {
-  submitAnswer: false,
-  error: "",
-  score: 0,
-};
-
-const initialQuizState = {
+const initialQuizState: QuizState = {
   submitAnswer: false,
   selectedOption: "",
   correctAnswer: "",

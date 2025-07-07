@@ -104,6 +104,7 @@
   height: 30px;
 }
 
+/* Persist selected button styles */
 .selected {
   border: 3px solid var(--purple-600);
   background-color: var(--btn-color-3);
@@ -117,6 +118,7 @@
   color: white;
 }
 
+/* Correct/incorrect answer */
 .correct {
   border: 2px solid green !important;
 }
