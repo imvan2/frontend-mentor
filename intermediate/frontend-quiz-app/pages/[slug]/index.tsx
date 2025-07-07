@@ -3,7 +3,7 @@
 import PrimaryBtn from "@/components/primaryBtn";
 import data from "@/data.json";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useEffect, useState, useReducer, useMemo } from "react";
+import { useState, useReducer } from "react";
 import shuffleArray from "@/utils/shuffleArray";
 import ThirdBtn from "@/components/thirdBtn";
 import fonts from "@/styles/Fonts.module.css";
