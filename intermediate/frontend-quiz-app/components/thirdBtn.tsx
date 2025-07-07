@@ -24,25 +24,19 @@ export default function ThirdBtn({
   selectedOption,
   ifUserIsCorrect,
   correctAnswer,
-  resultsBtn,
   disableBtns,
 }: ThirdBtnProps) {
   const isSelected = selectedOption === content;
   const isCorrectAnswer = correctAnswer === content;
 
-  // console.log("submitAnswer", submitAnswer);
-  // if user submitted an answer AND (selected option matches button AND user is correct)
+  // If user submitted an answer AND (selected option matches button AND user is correct)
   // OR (user is wrong AND the content matches answer)
   // Basically, show the correct icon when user selected the correct answer
   // or show the correct answer
   const showCorrectIcon =
     submitAnswer &&
     ((isSelected && ifUserIsCorrect) || (!ifUserIsCorrect && isCorrectAnswer));
-  console.log(
-    "showCorrectIcon",
-    submitAnswer &&
-      ((isSelected && ifUserIsCorrect) || (!ifUserIsCorrect && isCorrectAnswer))
-  );
+
   // If user submitted an answer AND selected option matches button AND if user is wrong
   const showIncorrectIcon = submitAnswer && isSelected && !ifUserIsCorrect;
 
@@ -53,17 +47,18 @@ export default function ThirdBtn({
       value={value}
       className={`${buttons.third_button} ${fonts.txt_preset_4} ${
         fonts.font_styles_1
-      } ${!submitAnswer && isSelected ? `${buttons.selected}` : ""}
+      } 
+      ${!submitAnswer && isSelected ? `${buttons.selected}` : ""}
       ${
         submitAnswer && ifUserIsCorrect && isSelected
           ? `${buttons.correct}`
           : ""
       }
-          ${
-            submitAnswer && !ifUserIsCorrect && isSelected
-              ? `${buttons.incorrect}`
-              : ""
-          }`}
+      ${
+        submitAnswer && !ifUserIsCorrect && isSelected
+          ? `${buttons.incorrect}`
+          : ""
+      }`}
       id={id}
       disabled={disableBtns}
     >

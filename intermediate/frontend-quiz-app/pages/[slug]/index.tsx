@@ -55,7 +55,6 @@ export default function QuizPage({
       type: "SELECT_OPTION",
       selectedOption: value,
       correctAnswer: questions[currentQ].answer,
-      ifUserIsCorrect: value == questions[currentQ].answer,
     });
     setError("");
   };
@@ -77,22 +76,29 @@ export default function QuizPage({
     setScore(ifCorrectAnswer ? score + 1 : score);
 
     if (maxQuestions < currentQ + 2) {
+      // If it's the last question, submit answer and render 'See Results' btn
       dispatch({
         type: "SUBMIT",
         resultsBtn: true,
         disableBtns: true,
         submitAnswer: true,
+        ifUserIsCorrect: ifCorrectAnswer,
+        progress: (currentQ + 1 / maxQuestions) * 100,
       });
     } else {
+      // Else, don't render results btn
       dispatch({
-        type: "NEXT",
+        type: "SUBMIT",
         resultsBtn: false,
-        ifUserIsCorrect: ifCorrectAnswer,
         disableBtns: true,
         submitAnswer: true,
+        ifUserIsCorrect: ifCorrectAnswer,
+        progress: (currentQ + 1 / maxQuestions) * 100,
       });
     }
   };
+
+  console.log("currentQ", currentQ);
 
   const handleNextQuestion = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -107,6 +113,7 @@ export default function QuizPage({
         ifUserIsCorrect: false,
         disableBtns: false,
         submitAnswer: false,
+        progress: quizState?.progress,
       });
     }
 
@@ -137,7 +144,7 @@ export default function QuizPage({
         <div className={`${styles.progress_bar}`}>
           <div
             className={`${styles.progress}`}
-            style={{ width: `${((currentQ + 1) / maxQuestions) * 100}%` }}
+            style={{ width: `${quizState.progress}%` }}
           ></div>
         </div>
       </div>
@@ -158,7 +165,6 @@ export default function QuizPage({
               ifUserIsCorrect={quizState.ifUserIsCorrect}
               correctAnswer={quizState.correctAnswer}
               disableBtns={quizState.disableBtns}
-              resultsBtn={quizState.resultsBtn}
             />
           ))}
         </div>
@@ -231,7 +237,6 @@ function QuizStateReducer(
         ...quizState,
         selectedOption: action.selectedOption,
         correctAnswer: action.correctAnswer,
-        ifUserIsCorrect: action.ifUserIsCorrect,
       };
     }
     case "SUBMIT": {
@@ -240,6 +245,8 @@ function QuizStateReducer(
         resultsBtn: action.resultsBtn,
         disableBtns: action.disableBtns,
         submitAnswer: action.submitAnswer,
+        ifUserIsCorrect: action.ifUserIsCorrect,
+        progress: action.progress,
       };
     }
     case "NEXT": {
@@ -249,6 +256,7 @@ function QuizStateReducer(
         ifUserIsCorrect: action.ifUserIsCorrect,
         disableBtns: action.disableBtns,
         submitAnswer: action.submitAnswer,
+        progress: action.progress,
       };
     }
   }
@@ -262,4 +270,5 @@ const initialQuizState: QuizState = {
   ifUserIsCorrect: false,
   resultsBtn: false,
   disableBtns: false,
+  progress: 1,
 };

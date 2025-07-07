@@ -9,8 +9,9 @@ export interface QuizState {
   selectedOption: string;
   ifUserIsCorrect: boolean;
   correctAnswer: string;
-  resultsBtn: boolean;
+  resultsBtn?: boolean;
   disableBtns: boolean;
+  progress?: number | undefined;
 }
 
 export interface ThirdBtnProps extends QuizState {
@@ -30,7 +31,6 @@ export interface SelectOptionAction {
   type: "SELECT_OPTION";
   selectedOption: string;
   correctAnswer: string;
-  ifUserIsCorrect: boolean;
 }
 
 export interface SubmitAction {
@@ -38,6 +38,8 @@ export interface SubmitAction {
   resultsBtn: boolean;
   disableBtns: boolean;
   submitAnswer: boolean;
+  ifUserIsCorrect: boolean;
+  progress: number | undefined;
 }
 
 export interface NextAction {
@@ -46,4 +48,5 @@ export interface NextAction {
   ifUserIsCorrect: boolean;
   disableBtns: boolean;
   submitAnswer: boolean;
+  progress: number | undefined;
 }
