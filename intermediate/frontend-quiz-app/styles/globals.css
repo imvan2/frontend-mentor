@@ -189,30 +189,3 @@ body {
     border-color: transparent;
   }
 }
-
-.selected {
-  border: 3px solid var(--purple-600);
-  background-color: var(--btn-color-3);
-}
-
-.correct {
-  border: 2px solid green !important;
-}
-
-.correct > div:nth-child(1) > div:nth-child(1) {
-  --letter-txt-color: white;
-
-  background-color: green !important;
-  color: var(--letter-txt-color) !important;
-}
-
-.incorrect {
-  border: 2px solid red !important;
-}
-
-.incorrect > div:nth-child(1) > div:nth-child(1) {
-  --letter-txt-color: white;
-
-  background-color: red !important;
-  color: var(--letter-txt-color) !important;
-}

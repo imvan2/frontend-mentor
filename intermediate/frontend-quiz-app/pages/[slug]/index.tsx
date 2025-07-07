@@ -3,7 +3,7 @@
 import PrimaryBtn from "@/components/primaryBtn";
 import data from "@/data.json";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useReducer } from "react";
 import shuffleArray from "@/utils/shuffleArray";
 import ThirdBtn from "@/components/thirdBtn";
 import fonts from "@/styles/Fonts.module.css";
@@ -21,26 +21,14 @@ export default function QuizPage({
   title: string;
   questions: { question: string; options: string[]; answer: string }[];
 }) {
-  // Question state
   const [options, setOptions] = useState([]);
   const [currentQ, setCurrentQ] = useState<number>(0);
-
-  // Keeping track of user actions
-  // Whether or not the user submitted an answer
-  const [submitAnswer, setSubmitAnswer] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [score, setScore] = useState<number>(0);
 
-  const [progess, setProgress] = useState<number>(1);
-  const [disableBtns, setDisableBtns] = useState<boolean>(false);
   const maxQuestions = questions.length;
 
-  // Need to keep track of the answer the user selected AND the correct answer
-  // Need to keep track of whether or not the user was correct
-  const [selectedOption, setSelectedOption] = useState<string>("");
-  const [correctAnswer, setCorrectAnswer] = useState<string>("");
-  const [ifUserIsCorrect, setIfUserIsCorrect] = useState<boolean>(false);
-  const [resultsBtn, setResultsBtn] = useState<boolean>(false);
+  const [quizState, dispatch] = useReducer(QuizStateReducer, initialQuizState);
 
   const router = useRouter();
 
@@ -57,11 +45,15 @@ export default function QuizPage({
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    setSelectedOption(value);
-    setCorrectAnswer(questions[currentQ].answer);
+    dispatch({
+      type: "select option",
+      selectedOption: value,
+      correctAnswer: questions[currentQ].answer,
+      ifUserIsCorrect: value == questions[currentQ].answer,
+    });
     setError("");
 
-    document.getElementById(`${value}`)?.classList.add("selected");
+    // document.getElementById(`${value}`)?.classList.add("selected");
   };
 
   // Handles submitting the question
@@ -69,32 +61,31 @@ export default function QuizPage({
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
-    if (selectedOption === "") {
+    if (quizState.selectedOption === "") {
       setError("Please select an answer");
       return;
     }
 
-    setSubmitAnswer(!submitAnswer);
-    setProgress(((currentQ + 1) / maxQuestions) * 100);
-
     // Boolean check if the user is correct
-    const ifCorrectAnswer = correctAnswer === selectedOption;
-    setIfUserIsCorrect(ifCorrectAnswer);
+    const ifCorrectAnswer =
+      quizState.correctAnswer === quizState.selectedOption;
+
     setScore(ifCorrectAnswer ? score + 1 : score);
 
-    // If the user selected the correct answer, highlight the correct border color
-    if (ifCorrectAnswer) {
-      // Set the selected button styles to green
-      document.getElementById(`${selectedOption}`)?.classList.add("correct");
-    } else {
-      // Set the selected button styles to red
-      document.getElementById(`${selectedOption}`)?.classList.add("incorrect");
-    }
-
-    setDisableBtns(true);
-
     if (maxQuestions < currentQ + 2) {
-      setResultsBtn(true);
+      dispatch({
+        type: "submit",
+        resultsBtn: true,
+        disableBtns: true,
+      });
+    } else {
+      dispatch({
+        type: "submit",
+        resultsBtn: false,
+        ifUserIsCorrect: ifCorrectAnswer,
+        disableBtns: true,
+        submitAnswer: true,
+      });
     }
   };
 
@@ -103,12 +94,12 @@ export default function QuizPage({
   ) => {
     e.preventDefault();
     if (maxQuestions >= currentQ + 1) {
-      setSubmitAnswer(!submitAnswer);
+      // setSubmitAnswer(!submitAnswer);
       setCurrentQ(currentQ + 1);
 
-      setSelectedOption("");
-      setDisableBtns(false);
-      setIfUserIsCorrect(false);
+      dispatch({
+        type: "next",
+      });
     }
 
     return;
@@ -141,11 +132,11 @@ export default function QuizPage({
         <div className={`${styles.progress_bar}`}>
           <div
             className={`${styles.progress}`}
-            style={{ width: `${progess}%` }}
+            style={{ width: `${((currentQ + 1) / maxQuestions) * 100}%` }}
           ></div>
         </div>
       </div>
-      
+
       <div className={`${styles.btn_container}`}>
         <div className={`${styles.option_btns}`}>
           {options.map((option: string, key: number) => (
@@ -157,11 +148,11 @@ export default function QuizPage({
               handleClick={(e) => handleSelection(e)}
               value={option}
               // QuizState props
-              submitAnswer={submitAnswer}
-              selectedOption={selectedOption}
-              ifUserIsCorrect={ifUserIsCorrect}
-              correctAnswer={correctAnswer}
-              disableBtns={disableBtns}
+              submitAnswer={quizState.submitAnswer}
+              selectedOption={quizState.selectedOption}
+              ifUserIsCorrect={quizState.ifUserIsCorrect}
+              correctAnswer={quizState.correctAnswer}
+              disableBtns={quizState.disableBtns}
             />
           ))}
         </div>
@@ -172,8 +163,8 @@ export default function QuizPage({
 
         {/* See Results should render when a user is finished  */}
 
-        {!resultsBtn ? (
-          submitAnswer ? (
+        {!quizState.resultsBtn ? (
+          quizState.submitAnswer ? (
             <PrimaryBtn
               content="Next Question"
               handleClick={(e) => handleNextQuestion(e)}
@@ -217,4 +208,48 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: { title, questions },
   };
+};
+
+function QuizStateReducer(quizState, action) {
+  switch (action.type) {
+    // Handle option selection
+    // Keep track of the answer selected
+    // Keep track of the correct answer
+    case "select option": {
+      return {
+        ...quizState,
+        selectedOption: action.selectedOption,
+        correctAnswer: action.correctAnswer,
+        ifUserIsCorrect: action.ifUserIsCorrect,
+      };
+    }
+    case "submit": {
+      return {
+        ...quizState,
+        resultsBtn: action.resultsBtn,
+        disableBtns: action.disableBtns,
+        submitAnswer: action.submitAnswer,
+      };
+    }
+    case "next": {
+      return {
+        ...initialQuizState,
+      };
+    }
+  }
+}
+
+const initialUserActions = {
+  submitAnswer: false,
+  error: "",
+  score: 0,
+};
+
+const initialQuizState = {
+  submitAnswer: false,
+  selectedOption: "",
+  correctAnswer: "",
+  ifUserIsCorrect: false,
+  resultsBtn: false,
+  disableBtns: false,
 };
