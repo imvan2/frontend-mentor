@@ -74,6 +74,7 @@ export default function QuizPage({
       quizState.correctAnswer === quizState.selectedOption;
 
     setScore(ifCorrectAnswer ? score + 1 : score);
+    const calcProgress = ((currentQ + 1) / maxQuestions) * 100;
 
     if (maxQuestions < currentQ + 2) {
       // If it's the last question, submit answer and render 'See Results' btn
@@ -83,7 +84,7 @@ export default function QuizPage({
         disableBtns: true,
         submitAnswer: true,
         ifUserIsCorrect: ifCorrectAnswer,
-        progress: (currentQ + 1 / maxQuestions) * 100,
+        progress: calcProgress,
       });
     } else {
       // Else, don't render results btn
@@ -93,12 +94,10 @@ export default function QuizPage({
         disableBtns: true,
         submitAnswer: true,
         ifUserIsCorrect: ifCorrectAnswer,
-        progress: (currentQ + 1 / maxQuestions) * 100,
+        progress: calcProgress,
       });
     }
   };
-
-  console.log("currentQ", currentQ);
 
   const handleNextQuestion = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -113,7 +112,7 @@ export default function QuizPage({
         ifUserIsCorrect: false,
         disableBtns: false,
         submitAnswer: false,
-        progress: quizState?.progress,
+        progress: quizState.progress && quizState.progress,
       });
     }
 
@@ -246,7 +245,7 @@ function QuizStateReducer(
         disableBtns: action.disableBtns,
         submitAnswer: action.submitAnswer,
         ifUserIsCorrect: action.ifUserIsCorrect,
-        progress: action.progress,
+        progress: action.progress && action.progress,
       };
     }
     case "NEXT": {
@@ -256,11 +255,10 @@ function QuizStateReducer(
         ifUserIsCorrect: action.ifUserIsCorrect,
         disableBtns: action.disableBtns,
         submitAnswer: action.submitAnswer,
-        progress: action.progress,
+        progress: action.progress && action.progress,
       };
     }
   }
-  return initialQuizState;
 }
 
 const initialQuizState: QuizState = {
